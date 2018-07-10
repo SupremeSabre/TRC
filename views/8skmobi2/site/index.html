@@ -1,0 +1,223 @@
+<script type='text/javascript' src='{theme:javascript/jquery.flexslider-min.js}'></script>
+<script type="text/javascript" src="{theme:javascript/jquery.more.js}"></script>
+<script type='text/javascript' src='{theme:javascript/TouchSlide.1.1.js}'></script>
+<div class="index_box">
+    <!--幻灯片 开始-->
+    <div class="flexslider" id="tempWrap">
+        <ul class="slides">
+        {foreach:items=$this->index_slide}
+        <li><a href="{url:$item[url]}"><img src="{url:$item['img']}" title="{$item['name']}" /></a></li>
+        {/foreach}
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#tempWrap').flexslider({
+                animation : 'slide',
+                controlNav : true,
+                directionNav : true,
+                animationLoop : true,
+                slideshow : true,
+                useCSS : false
+            });
+        });
+    </script>
+    <!--幻灯片 结束-->
+    
+    <div class="index_search" >
+        <div class="index_search_mid">
+            <span><i class="iconfont">&#xe602;</i></span>
+            <input class="text" id="search_text" type="text" value="请输入您所搜索的商品"/>
+        </div>
+    </div>
+    
+    <div class="nav-index">
+        <ul>
+            <li>
+                <a href="{url:/site/category}">
+                    <span class="iconfont c1">&#xe62c;</span>
+                    <span class="t"><span>全部分类</span></span>
+                </a>
+            </li>
+            <li>
+                <a href="{url:/site/notice}">
+                    <span class="iconfont c5">&#xe66a;</span>
+                    <span class="t"><span>商城公告</span></span>
+                </a>
+            </li>
+            <li>
+                <a href="{url:/site/article}">
+                    <span class="iconfont c6">&#xe623;</span>
+                    <span class="t"><span>新闻资讯</span></span>
+                </a>
+            </li>
+            <li>
+                <a href="{url:/ucenter/index}">
+                    <span class="iconfont c7">&#xe628;</span>
+                    <span class="t"><span>个人中心</span></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="product_productx">
+        <div class="head"><span>限时促销</span></div>
+        <div class="scroll_hot" id="scroll_sale">
+            <div class="bd">
+                <ul>
+                {set:$keyxb=1}
+                {foreach:items=Api::run('getPromotionList',5)}
+                {set:$free_time = ITime::getDiffSec($item['end_time'])}
+                {set:$countNumsItem[] = $item['p_id'];}
+                {set:$tmpGoodsId=$item['goods_id'];$tmpPId=$item['p_id'];}
+                {set:$keyxb++}
+                {if:$keyxb == 4}
+                </ul><ul>
+                {/if}
+                <li>
+                    <a href="{url:/site/products/id/$tmpGoodsId/promo/time/active_id/$tmpPId}">
+                    <div class="products_kuang">
+                        <img src="{url:/pic/thumb/img/$item[img]/w/160/h/160}">
+                    </div>
+                    <div class="goods_name">{$item['name']}</div>
+                    <div class="price">
+                        <span class="price_pro">￥{$item['award_value']}</span>
+                        <span class="countdown"><b id='cd_hour_{$item['p_id']}'>{echo:floor($free_time/3600);}</b>时<b id='cd_minute_{$item['p_id']}'>{echo:floor(($free_time%3600)/60);}</b>分<b id='cd_second_{$item['p_id']}'>{echo:$free_time%60;}</b>秒</span>
+                    </div>
+                    </a>
+                </li>
+                {/foreach}
+                </ul>
+            </div>
+            <div class="hd">
+                <ul></ul>
+            </div>
+            
+            <script type="text/javascript">
+            TouchSlide({ 
+                slideCell:"#scroll_sale",
+                titCell:".hd ul",
+                effect:"leftLoop", 
+                autoPage:true,
+            });
+            </script>
+        </div>
+    </div>
+    
+    <div class="product_productx">
+        <div class="head"><span>新品上市</span></div>
+        <div class="scroll_hot" id="scroll_new">
+            <div class="bd">
+                <ul>
+                {set:$keyxx =0}
+                {foreach:items=Api::run('getCommendNew',6)}
+                {set:$tmpIdx=$item['id']}
+                {set:$keyxx++}
+                {if:$keyxx == 4}
+                </ul><ul>
+                {/if}
+                <li>
+                    <div class="products_kuang">
+                        <a href="{url:/site/products/id/$tmpIdx}"><img src="{url:/pic/thumb/img/$item[img]/w/160/h/160}"></a>
+                    </div>
+                    <div class="goods_name">{$item['name']}</div>
+                    <div class="price">
+                        <span class="price_pro">￥{$item['sell_price']}</span>
+                        <span class="costprice">￥{$item['market_price']}元</span>
+                        <a href="javascript:;" onclick="joinCart_list({$item['id']});" class="iconfont">&#xe629;</a>
+                    </div>
+                </li>
+                {/foreach}
+                </ul>
+            </div>
+            <div class="hd">
+                <ul></ul>
+            </div>
+            
+            <script type="text/javascript">
+            TouchSlide({ 
+                slideCell:"#scroll_new",
+                titCell:".hd ul",
+                effect:"leftLoop", 
+                autoPage:true,
+            });
+            </script>
+        </div>
+    </div>
+    
+    <section class="index_floor_lou">
+        <div class="floor_body2" >
+            <h2><em></em>精品推荐</h2>
+            <div id="J_ItemList">
+                <ul class="product single_item info"></ul>
+                <a href="javascript:;" class="get_more" style="text-align:center;"></a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="search_hide" class="search_hide">
+    <h2>关键词搜索</h2>
+    <div class="search_body">
+        <div class="search_box">
+            <form method='get' action='{url:/}'>
+                <input type='hidden' name='controller' value='site'/>
+                <input type='hidden' name='action' value='search_list' />
+                <div>
+                    <button type="submit" value="搜 索"><i class="iconfont">&#xe602;</i></button>
+                    <input class="text" type="search" name="word" value="搜索你想找的商品" onFocus="if(this.value=='搜索你想找的商品'){this.value='';}" onblur="if(this.value==''){this.value='搜索你想找的商品';}" id="keywordBox">
+                </div>
+            </form>
+        </div>
+        <span class="close" title="关闭搜索"><i class="iconfont">&#xe660;</i></span>
+    </div>
+    <section class="mix_recently_search">
+        <h3>热门搜索</h3>
+        <ul>
+        {foreach:items=Api::run('getKeywordList') }
+        {set:$tmpWord = urlencode($item['word']);}
+        <li><a href="{url:/site/search_list/word/$tmpWord}">{$item['word']}</a></li>
+        {/foreach}
+        </ul>
+    </section>
+</div>
+
+<script type="text/javascript">
+var url = '{url:/bsk/hot_goods}';
+$(function(){
+    $('#J_ItemList').more({'address': url});
+});
+</script>
+
+<script type="text/javascript">
+//dom载入完毕执行
+$(function(){
+	//显示抢购倒计时
+	var cd_timer = new countdown();
+	{if:isset($countNumsItem) && $countNumsItem}
+	{foreach:items = $countNumsItem}
+		cd_timer.add({$item});
+	{/foreach}
+	{/if}
+	
+	$('#search_text').click(function(){
+		$("#showpage").children('.index_box').hide();
+		$(".nav").hide();
+		$("#goTop").hide();
+		$("#search_hide").css('position','fixed').css('top','0px').css('width','100%').css('z-index','999').show();
+	})
+	$('#get_search_box').click(function(){
+		$("#showpage").children('.index_box').hide();
+		$(".nav").hide();
+		$("#goTop").hide();
+		$("#search_hide").css('position','fixed').css('top','0px').css('width','100%').css('z-index','999').show();
+	})
+	$("#search_hide .close").click(function(){
+		$("#showpage").children('.index_box').show();
+		$(".nav").show();
+		$("#goTop").show();
+		$("#search_hide").hide();
+		$("#keywordBox").attr("value","搜索你想找的商品");
+	})
+});
+</script>

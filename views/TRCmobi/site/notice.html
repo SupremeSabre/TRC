@@ -1,0 +1,13 @@
+{set:$top_name = "商城公告"}
+<div class="body_page_box">
+    <div class="list-group">
+    {set:$queryNotice = Api::run('getNoticeList')}
+    {foreach:items = $queryNotice->find()}
+      <a href="{url:/site/notice_detail/id/$item[id]}" class="list-group-item">
+        <h4 class="list-group-item-heading" style="font-size:14px;">{$item['title']}</h4>
+        <p class="list-group-item-text" style="color:#999;">{$item['time']}</p>
+      </a>
+    {/foreach}
+    </div>
+    {$queryNotice->getPageBar()}
+</div>

@@ -1,0 +1,159 @@
+{js:artTemplate}
+{set:$top_name = "订单详情"}
+
+<div class="order_info_top">
+    <div class="proReduce_icon"><b>订单号：</b>{$this->order_info['order_no']}</div>
+    <div class="proReduce"><b>下单日期：</b>{$this->order_info['create_time']}</div>
+    <div class="proReduce"><b>状态：</b>{echo:Order_Class::orderStatusText($orderStatus)}</div>
+</div>
+<div class="body_page_box">
+    <div class="control-label m_ytitle">订单信息</div>
+    <div class="logistics_by_city">
+        {set:$orderStep = Order_Class::orderStep($this->order_info)}
+		{foreach:items=$orderStep item=$stepData key=$eventTime}
+        <div class="by_city_info">
+            <i class="round"></i>
+            <span>{$eventTime}</span>
+            <em>{$stepData}</em>
+        </div>
+        {/foreach}
+    </div>
+
+    <div class="control-label m_ytitle">收件人信息</div>
+	<div class="list-group">
+        <div class="list-group-item" id="acceptShow">
+            <div class="list-group-item-heading">收货人：{$this->order_info['accept_name']}</div>
+            <div class="list-group-item-heading">地址：{$this->order_info['province_str']} {$this->order_info['city_str']} {$this->order_info['area_str']} {$this->order_info['address']}</div>
+            <div class="list-group-item-heading">邮编：{$this->order_info['postcode']}</div>
+            <div class="list-group-item-heading">固定电话：{$this->order_info['telphone']}</div>
+            <div class="list-group-item-heading">手机号码：{$this->order_info['mobile']}</div>
+		</div>
+	</div>
+
+	<!--支付和配送-->
+    <div class="control-label m_ytitle">支付及配送方式</div>
+	<div class="list-group">
+        <div class="list-group-item">
+            <div class="list-group-item-heading">配送方式：{$this->order_info['delivery']}</div>
+            {if:$this->order_info['takeself']}
+            <div class="list-group-item-heading">自提地址：{$this->order_info['takeself']['province_str']}{$this->order_info['takeself']['city_str']}{$this->order_info['takeself']['area_str']}{$this->order_info['takeself']['address']}</div>
+            <div class="list-group-item-heading">自提联系方式：</div>
+            <div class="list-group-item-heading">座机：{$this->order_info['takeself']['phone']} &nbsp;&nbsp;手机：{$this->order_info['takeself']['mobile']}</div>
+            {/if}
+            <div class="list-group-item-heading">支付方式：{$this->order_info['payment']}</div>
+			{if:$this->order_info['paynote']}
+            <div class="list-group-item-heading">支付说明：{$this->order_info['paynote']}</div>
+            {/if}
+            <div class="list-group-item-heading">物流运费：{$this->order_info['real_freight']}</div>
+            <div class="list-group-item-heading">物流公司：{$this->order_info['freight']['freight_name']}</div>
+            <div class="list-group-item-heading">快递单号：{$this->order_info['freight']['delivery_code']}</div>
+        </div>
+	</div>
+
+    <!--发票信息-->
+    {if:$this->order_info['invoice']==1}
+    <div class="control-label m_ytitle">发票信息</div>
+	<div class="list-group">
+        <div class="list-group-item">
+            <div class="list-group-item-heading">所需税金:{$this->order_info['taxes']}</div>
+            <div class="list-group-item-heading">发票抬头:{$this->order_info['invoice_title']}</div>
+        </div>
+	</div>
+    {/if}
+
+	<!-- 物品清单 -->
+    <div class="control-label m_ytitle">物品清单</div>
+    <div class="list-group">
+        {foreach:items=Api::run('getOrderGoodsListByGoodsid',array('#order_id#',$this->order_info['order_id'])) item=$good}
+        {set:$good_info = JSON::decode($good['goods_array'])}
+        {set:$totalWeight = $good['goods_nums'] * $good['goods_weight']}
+        <div class="list-group-item">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <img class="pro_pic lazyload" src="{webroot:$good['img']}" width="80px" height="80px"/>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="{url:/site/products/id/$good['goods_id']}">{$good_info['name']}</a></h4>
+                    {if:$good_info['value']!=''}<p>{$good_info['value']}</p>{/if}
+                    <p class="f_favor">￥{$good['goods_price']}</p>
+                    <div class="ly_store" style="padding:0px;">积分：{echo:$good['point']*$good['goods_nums']}</div>
+                    <p class="ly_store" style="padding:0px;">小计：￥{echo:$good['goods_nums']*$good['real_price']}</p>
+                </div>
+            </div>
+            <div style="padding-top:8px;">
+                {echo:Order_Class::goodsSendStatus($good['is_send'])}
+                {if:$good['delivery_id']}
+                <input type='button' class='btn b-default btn-xs' value='物流' onclick='freightLine({$good['delivery_id']});' />
+                {/if}
+            </div>
+        </div>
+        {/foreach}
+    </div>
+
+	<div class="gray_box">
+		<div class="t_part">
+			<p>商品总金额：￥{$this->order_info['payable_amount']}</p>
+			<p>+ 运费：￥<label id="freightFee">{$this->order_info['real_freight']}</label></p>
+
+            {if:$this->order_info['taxes'] > 0}
+            <p>+ 税金：￥{$this->order_info['taxes']}</p>
+            {/if}
+
+            {if:$this->order_info['pay_fee'] > 0}
+            <p>+ 支付手续费：￥{$this->order_info['pay_fee']}</p>
+            {/if}
+
+            {if:$this->order_info['insured'] > 0}
+            <p>+ 保价：￥{$this->order_info['insured']}</p>
+            {/if}
+
+            <p>订单折扣或涨价：￥{$this->order_info['discount']}</p>
+
+            {if:$this->order_info['promotions'] > 0}
+            <p>- 促销优惠金额：￥{$this->order_info['promotions']}</p>
+            {/if}
+		</div>
+
+		<div class="b_part">
+			<p>订单支付金额：<span class="lyred">￥<label>{$this->order_info['order_amount']}</label></span></p>
+		</div>
+	</div>
+    
+    <form action='{url:/ucenter/order_status}' method='post'>
+        <input type="hidden" name="order_id" value="{$this->order_info['order_id']}" />
+        {if:$orderStatus == 2}
+        <div class="form-group has-feedback">
+        <input class="btn btn-warning btn-lg btn-block" type="submit" value="立即付款" onclick="window.location.href='{url:/block/doPay/order_id/$this->order_info['order_id']}'"/>
+        </div>
+        {/if}
+        
+        {if:in_array($orderStatus,array(1,2))}
+        <div class="form-group has-feedback">
+        <input type="hidden" name='op' value='cancel' />
+        <input type="submit" class="btn b-danger btn-lg btn-block" value="取消订单" />
+        </div>
+        {/if}
+
+        {if:in_array($orderStatus,array(11,3))}
+        <div class="form-group has-feedback">
+            <input type="hidden" name='op' value='confirm' />
+            <input type="submit" class="btn btn-warning btn-lg btn-block" value="确认收货" />
+        </div>
+        {/if}
+
+        {if:Order_Class::isRefundmentApply($this->order_info)}
+        <div class="form-group has-feedback">
+            <input type="button" class="btn btn-warning btn-lg btn-block" value="申请退款" onclick='javascript:window.location.href="{url:/ucenter/refunds_edit/order_id/$this->order_info['order_id']}"' />
+        </div>
+        {/if}
+    </form>
+</div>
+
+<script type="text/javascript">
+//快递跟踪
+function freightLine(doc_id){
+	var urlVal = "{url:/block/freight/id/@id@}";
+	urlVal = urlVal.replace("@id@",doc_id);
+	art.dialog.open(urlVal,{'title':'轨迹查询',width:'600px',height:'500px'});
+}
+</script>

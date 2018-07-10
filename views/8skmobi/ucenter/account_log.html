@@ -1,0 +1,23 @@
+{set:$top_name = "交易记录"}
+<div class="top_tab">
+    <ul>
+    <li class="on" id="mail"><a href='{url:/ucenter/account_log}'>交易记录</a></li>
+    <li id="mobile"><a href='{url:/ucenter/withdraw}'>{$top_name}</a></li>
+    </ul>
+</div>
+<div class="body_page_box">
+	<div class="prompt">
+		<p>账户余额：￥{$this->memberRow['balance']}</p>
+	</div>
+    <div class="list-group">
+        {set:$queryAccountLogList = Api::run('getUcenterAccoutLog',$this->user['user_id'])}
+        {foreach:items = $queryAccountLogList->find()}
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading"><strong>{echo:$item['amount'] < 0 ? $item['amount'].'元' : ''}</strong><p>{echo:$item['amount'] > 0 ? $item['amount'].'元' : ''}</p><span>{$item['time']}</span></h4>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#666;">{$item['note']}</p>
+            <div class="form-group has-feedback" style="height:20px; line-height:20px; margin-bottom:0px;">余额 {$item['amount_log']} 元</div>
+        </div>
+        {/foreach}
+    </div>
+    {$queryAccountLogList->getPageBar()}
+</div>

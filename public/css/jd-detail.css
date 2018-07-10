@@ -1,0 +1,1309 @@
+.p-parameter ul li, .p-parameter ul li .detail p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.Ptable-item, .p-parameter {
+    border-bottom: 1px solid #eee
+}
+
+    .Ptable-item h3, .package-list h3 {
+        font-weight: 400;
+        font-size: 12px;
+        float: left
+    }
+
+.formwork_text, .service-rule p {
+    text-indent: 2em
+}
+
+.detail-con li {
+    background: #ccc
+}
+
+.p-parameter {
+    padding: 0 10px 10px;
+    margin-bottom: 10px
+}
+
+    .p-parameter .more-par {
+        padding-right: 20px;
+        margin-top: -5px;
+        text-align: right
+    }
+
+        .p-parameter .more-par a {
+            color: #005aa0
+        }
+
+    .p-parameter ul {
+        padding: 20px 0 15px;
+        overflow: hidden;
+        _zoom: 1
+    }
+
+        .p-parameter ul li {
+            width: 145px;
+            padding-left: 42px;
+            float: left;
+            margin-bottom: 5px
+        }
+
+            .p-parameter ul li i {
+                float: left;
+                width: 33px;
+                height: 33px;
+                overflow: hidden;
+                line-height: 1000px;
+                margin-top: 2px;
+                margin-left: -37px;
+                background-repeat: no-repeat;
+                background-position: 0 0
+            }
+
+            .p-parameter ul li .i-phone {
+                height: 31px;
+                background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/param1.png)
+            }
+
+            .p-parameter ul li .i-camera {
+                background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/param2.png)
+            }
+
+            .p-parameter ul li .i-cpu {
+                background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/param3.png)
+            }
+
+            .p-parameter ul li .i-network {
+                background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/param4.png)
+            }
+
+            .p-parameter ul li .detail {
+                width: 142px;
+                min-height: 0
+            }
+
+* + html .addcart-mini .mini-product-info, * + html .quality-life {
+    min-height: 1%
+}
+
+.p-parameter ul li .detail p {
+    width: 100%;
+    line-height: 18px;
+    margin-bottom: 4px
+}
+
+.p-parameter .p-parameter-list li a {
+    color: #5e69ad
+}
+
+.detail-correction {
+    padding: 8px 0 8px 10px;
+    zoom: 1;
+    background-color: #fff
+}
+
+    .detail-correction b {
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/warring.png) no-repeat;
+        margin-right: 5px;
+        vertical-align: middle;
+        *zoom: 1
+    }
+
+    .detail-correction a {
+        color: #005ea7
+    }
+
+.Ptable {
+    margin: 10px 0
+}
+
+.Ptable-item {
+    padding: 12px 0;
+    line-height: 220%;
+    color: #999;
+    font-size: 12px
+}
+
+    .Ptable-item:after {
+        content: "";
+        height: 0;
+        visibility: hidden;
+        display: block;
+        clear: both
+    }
+
+    .Ptable-item h3 {
+        width: 110px;
+        text-align: right
+    }
+
+    .Ptable-item dl {
+        margin-left: 110px
+    }
+
+    .Ptable-item dt {
+        width: 160px;
+        float: left;
+        text-align: right;
+        padding-right: 5px
+    }
+
+    .Ptable-item dd {
+        margin-left: 210px
+    }
+
+    .Ptable-item .Ptable-tips {
+        position: relative;
+        float: left;
+        width: auto;
+        margin-left: 0
+    }
+
+        .Ptable-item .Ptable-tips:hover {
+            z-index: 2
+        }
+
+    .Ptable-item .Ptable-sprite-question {
+        display: inline-block;
+        margin-left: 4px;
+        width: 16px;
+        height: 16px;
+        vertical-align: -3px;
+        background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/sprite.png) no-repeat
+    }
+
+.Ptable-tips .tips {
+    display: none;
+    position: absolute;
+    left: -10px;
+    top: 27px;
+    width: 300px
+}
+
+.Ptable-tips:hover .tips {
+    display: block
+}
+
+.Ptable-tips .content {
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #cecbce;
+    box-shadow: 0 0 2px 2px #eee
+}
+
+.Ptable-tips p {
+    font-family: "microsoft yahei";
+    color: #999;
+    line-height: 160%;
+    text-align: left
+}
+
+.Ptable-tips .Ptable-sprite-arrow {
+    position: absolute;
+    overflow: hidden;
+    left: 15px;
+    top: -5px;
+    width: 11px;
+    height: 6px;
+    background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/sprite.png) -19px 0 no-repeat
+}
+
+.package-list {
+    padding: 12px 0;
+    line-height: 220%;
+    color: #999;
+    font-size: 12px;
+    margin-top: -1px
+}
+
+    .package-list p {
+        margin-left: 155px;
+        padding-right: 50px
+    }
+
+    .package-list h3 {
+        width: 130px;
+        text-align: right
+    }
+
+.item-detail-copyright {
+    padding: 0 10px;
+    line-height: 180%
+}
+
+    .item-detail-copyright strong {
+        display: inline-block;
+        padding: 8px 0 3px
+    }
+
+#tuan-shouhou p {
+    margin: 5px 0;
+    line-height: 150%
+}
+
+.item-warnning {
+    display: inline-block;
+    padding: 1px 5px;
+    color: #e4393c;
+    background: #ffe8e8;
+    border: 1px solid #db9a9a;
+    margin-left: 10px;
+    *zoom: 1
+}
+
+    .item-warnning s {
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin: 1px 4px 0 0;
+        background-position: -100px -267px
+    }
+
+.formwork {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e6e6e6;
+    line-height: 23px;
+    text-align: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px
+}
+
+.formwork_title1, .formwork_titlecenter, .formwork_titleleft, .formwork_titleleft2 {
+    line-height: 25px;
+    font-size: 14px
+}
+
+.formwork p {
+    margin: 0;
+    padding: 0
+}
+
+.formwork_img {
+    width: 750px;
+    margin: 0 auto;
+    text-align: center
+}
+
+.formwork_titleleft {
+    font-weight: 700
+}
+
+.formwork_titlecenter {
+    text-align: center;
+    font-weight: 700
+}
+
+.formwork_text {
+    width: 100%
+}
+
+.formwork_imgleft, .formwork_imgleft1, .formwork_tpl_imgleft, .formwork_tpl_imgright, .formwork_tpl_left, .formwork_tpl_left1 {
+    float: left
+}
+
+.formwork_imgleft {
+    width: 200px;
+    padding: 10px 20px 10px 0
+}
+
+.formwork_imgright {
+    float: right;
+    width: 200px;
+    padding: 10px 0 10px 20px
+}
+
+.formwork_imgleft1 {
+    width: 360px;
+    padding: 10px 20px 10px 0
+}
+
+.formwork_imgright1 {
+    float: right;
+    width: 360px;
+    padding: 10px 0 10px 20px
+}
+
+.formwork_tpl_left {
+    width: 375px
+}
+
+.formwork_tpl_imgleft {
+    width: 150px;
+    padding: 10px 20px 10px 0
+}
+
+.formwork_tpl_imgright {
+    width: 150px;
+    padding: 10px 20px 10px 10px
+}
+
+.formwork_tpl_left1 {
+    width: 375px;
+    text-align: center
+}
+
+.formwork_tpl_img {
+    width: 100%;
+    padding: 20px
+}
+
+.formwork_title1 {
+    text-align: center;
+    font-weight: 700
+}
+
+.formwork_bt_dz, .formwork_bt_it, .formwork_bt_rb, .formwork_bt_top {
+    width: 750px;
+    height: 43px;
+    background-image: url(//misc.360buyimg.com/product/skin/2013/i/20130604A.png);
+    background-repeat: no-repeat
+}
+
+    .formwork_bt_dz span, .formwork_bt_it span, .formwork_bt_rb span, .formwork_bt_top span {
+        float: left;
+        padding-left: 10px;
+        line-height: 25px;
+        font-family: "microsoft yahei";
+        font-size: 14px
+    }
+
+        .formwork_bt_dz span.s2, .formwork_bt_it span.s2, .formwork_bt_rb span.s2, .formwork_bt_top span.s2 {
+            padding-left: 4px;
+            line-height: 20px;
+            font-size: 12px
+        }
+
+.formwork_bt {
+    overflow: hidden;
+    width: 753px;
+    padding: 10px 0;
+    line-height: 23px;
+    text-align: left;
+    font-size: 14px;
+    font-family: Arial,Helvetica,sans-serif
+}
+
+.formwork_bt_dz {
+    background-position: 0 0
+}
+
+    .formwork_bt_dz span {
+        color: #FFF;
+        padding-top: 14px
+    }
+
+        .formwork_bt_dz span.s2 {
+            padding-top: 18px
+        }
+
+.formwork_bt_rb {
+    background-position: 0 -90px
+}
+
+    .formwork_bt_rb span {
+        font-size: 18px;
+        color: #C90014;
+        padding-left: 2px;
+        padding-top: 12px
+    }
+
+        .formwork_bt_rb span.s2 {
+            color: #666;
+            padding-left: 10px;
+            line-height: 25px;
+            padding-top: 16px
+        }
+
+.formwork_bt_it {
+    background-position: 0 -45px
+}
+
+    .formwork_bt_it span {
+        color: #000;
+        padding-top: 8px
+    }
+
+        .formwork_bt_it span.s2 {
+            line-height: 23px;
+            padding-top: 10px
+        }
+
+.formwork_bt_top {
+    background-position: 0 -135px
+}
+
+    .formwork_bt_top span {
+        color: #000;
+        padding-top: 10px
+    }
+
+        .formwork_bt_top span.s2 {
+            padding-top: 14px
+        }
+
+#detail .tab-main {
+    position: relative;
+    overflow: visible
+}
+
+    #detail .tab-main.pro-detail-hd-fixed {
+        position: fixed;
+        top: 0;
+        z-index: 30;
+        width: 770px
+    }
+
+.root61 #detail .tab-main.pro-detail-hd-fixed {
+    width: 990px
+}
+
+.nav-qrcode .EDropdown .head {
+    height: 30px
+}
+
+.nav-qrcode .EDropdown .content {
+    top: 30px;
+    right: 0;
+    left: auto
+}
+
+.nav-qrcode .icon-qr {
+    margin-left: 10px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+    line-height: 1000px;
+    background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/qr-thumb.png) no-repeat;
+    vertical-align: middle
+}
+
+.addcart-mini {
+    display: none
+}
+
+    .addcart-mini .hover .content {
+        z-index: 1
+    }
+
+    .addcart-mini .EDropdown .content {
+        top: 26px;
+        right: 1px;
+        left: auto
+    }
+
+    .addcart-mini .mini-product-info {
+        background-color: #FFF;
+        width: 224px;
+        height: 101px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: inline-block;
+        display: block
+    }
+
+        .addcart-mini .mini-product-info:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden
+        }
+
+    * html .addcart-mini .mini-product-info {
+        height: 1%
+    }
+
+        .addcart-mini .mini-product-info .p-img {
+            margin-right: 10px
+        }
+
+.detail-content {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #f7f7f7
+}
+
+.detail-content-wrap {
+    width: 100%;
+    float: left;
+    background-color: #fff;
+    border-top: 1px soild #eee
+}
+
+    .detail-content-wrap .detail-content-item {
+        width: 100%
+    }
+
+    .detail-content-wrap .content_tpl {
+        width: 750px;
+        margin: 0 auto
+    }
+
+.detail-video-con .video-introduce, .detail-video-con .video-player {
+    width: 750px;
+    height: 422px
+}
+
+.detail-video-con .video-introduce {
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+.detail-video-con .video-list .playing .mask, .detail-video-con .video-list .playing .video-play {
+    display: block
+}
+
+.detail-content-nav {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 160px
+}
+
+    .detail-content-nav .detail-update {
+        display: block;
+        position: relative;
+        padding-left: 36px;
+        width: 62px;
+        height: 32px;
+        line-height: 32px;
+        color: #fff;
+        background: #6e9cd0;
+        margin: 10px auto 0
+    }
+
+        .detail-content-nav .detail-update i {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url(//static.360buyimg.com/item/unite/1.0.49/css/i/item.sprite.png) -30px -48px no-repeat;
+            display: block;
+            left: 8px;
+            top: 5px
+        }
+
+        .detail-content-nav .detail-update:hover {
+            text-decoration: none;
+            background: #5289c7
+        }
+
+            .detail-content-nav .detail-update:hover i {
+                background-position: 0 -48px
+            }
+
+    .detail-content-nav .book-qrcode {
+        padding-top: 10px
+    }
+
+        .detail-content-nav .book-qrcode .imgbox {
+            width: 98px;
+            height: 98px;
+            margin: 0 auto
+        }
+
+            .detail-content-nav .book-qrcode .imgbox img {
+                width: 98px;
+                height: 98px
+            }
+
+        .detail-content-nav .book-qrcode .text {
+            padding-top: 5px;
+            text-align: center
+        }
+
+    .detail-content-nav.fixed-top {
+        position: fixed;
+        top: 36px;
+        right: 50%;
+        margin-right: -605px
+    }
+
+.detail-content-tab {
+    font-size: 14px
+}
+
+    .detail-content-tab li {
+        position: relative;
+        padding: 15px 0 15px 33px
+    }
+
+        .detail-content-tab li i {
+            display: none
+        }
+
+    .detail-content-tab .current i, .root61 .addcart-mini, .root61 .z-have-detail-nav .detail-content-nav {
+        display: block
+    }
+
+    .detail-content-tab .current {
+        background-color: #e4393c
+    }
+
+        .detail-content-tab .current a {
+            color: #fff
+        }
+
+        .detail-content-tab .current .arrow-l {
+            width: 7px;
+            height: 13px;
+            position: absolute;
+            left: -7px;
+            top: 17px;
+            background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/arrow.png) no-repeat
+        }
+
+.service-pic {
+    text-align: center;
+    padding-top: 10px
+}
+
+.root61 .z-have-detail-nav {
+    padding-right: 157px
+}
+
+    .root61 .z-have-detail-nav .detail-content-wrap {
+        width: 830px
+    }
+
+        .root61 .z-have-detail-nav .detail-content-wrap .content_tpl {
+            width: 753px
+        }
+
+.root61 .detail .p-parameter {
+    padding: 0 10px 10px
+}
+
+.root61 .detail .p-parameter-list {
+    padding: 20px 0 15px
+}
+
+    .root61 .detail .p-parameter-list li {
+        width: 200px
+    }
+
+        .root61 .detail .p-parameter-list li .detail {
+            width: 197px
+        }
+
+#state strong {
+    color: #e4393c
+}
+
+.serve-agree-bd {
+    padding: 20px 20px 20px 62px
+}
+
+    .serve-agree-bd dt {
+        display: block;
+        height: 32px;
+        line-height: 32px;
+        margin-left: -42px;
+        font-size: 16px;
+        color: #e4393c;
+        font-family: "microsoft yahei"
+    }
+
+        .serve-agree-bd dt i {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            padding-right: 10px;
+            vertical-align: bottom
+        }
+
+        .serve-agree-bd dt .goods {
+            background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/iconZP.png) no-repeat
+        }
+
+        .serve-agree-bd dt .unprofor {
+            background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/iconLB.png) no-repeat
+        }
+
+        .serve-agree-bd dt .no-worries {
+            background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/iconWY.png) no-repeat
+        }
+
+    .serve-agree-bd dd {
+        display: block;
+        padding: 10px 0 30px;
+        line-height: 18px
+    }
+
+    #parameter-brand, .serve-agree-bd .no-worries-text {
+        padding-bottom: 0
+    }
+
+    .serve-agree-bd dd a {
+        color: #005aa0
+    }
+
+#J-detail-banner {
+    text-align: center
+}
+
+    #J-detail-banner img {
+        width: 750px
+    }
+
+#detail .tab-con:after {
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both
+}
+
+#detail .tab-con {
+    zoom: 1
+}
+
+.root61 #J-detail-banner img {
+    width: 990px
+}
+
+#parameter-brand li {
+    width: 50%
+}
+
+.follow-brand {
+    margin-left: 5px
+}
+
+.p-parameter .p-parameter-list .follow-brand {
+    color: #666
+}
+
+.follow-brand b {
+    color: #e4393c;
+    font-size: 22px;
+    font-family: simsun;
+    vertical-align: middle;
+    padding-right: 3px
+}
+
+.ebook .detail-content-wrap .content_tpl {
+    width: auto;
+    padding: 0 30px
+}
+
+.ebook .detail-content-wrap .formwork {
+    border: none
+}
+
+.ebook .detail-content-wrap .formwork_bt {
+    width: auto;
+    padding-top: 0;
+    _width: 770px
+}
+
+    .ebook .detail-content-wrap .formwork_bt .more {
+        display: none
+    }
+
+        .ebook .detail-content-wrap .formwork_bt .more a {
+            color: #828ABF
+        }
+
+.ebook .detail-content-wrap .formwork_bt_it {
+    width: auto;
+    height: auto;
+    background: 0 0;
+    border-bottom: 1px dotted #666;
+    padding: 0 0 5px;
+    margin-bottom: 10px
+}
+
+    .ebook .detail-content-wrap .formwork_bt_it span {
+        display: block;
+        line-height: 35px;
+        float: none;
+        color: #e4393c;
+        font-weight: 700;
+        border-bottom: 1px dotted #666
+    }
+
+    .ebook .detail-content-wrap .formwork_bt_it .s2 {
+        display: none
+    }
+
+.root61 .ebook .detail-content-wrap .detail-content-item {
+    width: auto;
+    padding: 0 70px 0 20px
+}
+
+.quality-life {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e3dddd;
+    display: inline-block;
+    display: block
+}
+
+    .quality-life:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+
+* html .quality-life {
+    height: 1%
+}
+
+    .quality-life .q-logo {
+        float: left;
+        width: 250px
+    }
+
+    .quality-life ul {
+        float: left
+    }
+
+    .quality-life li {
+        float: left;
+        display: inline;
+        width: 100px;
+        text-align: center;
+        padding-top: 5px;
+        margin-right: 20px;
+        position: relative
+    }
+
+        .quality-life li span {
+            display: block
+        }
+
+        .quality-life li .fresh-wd {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #df7368
+        }
+
+        .quality-life li .fresh-ico-1 {
+            cursor: default
+        }
+
+    .quality-life i {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        width: 45px;
+        height: 45px;
+        margin-bottom: 5px;
+        vertical-align: middle;
+        background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/quality-life.png) no-repeat
+    }
+
+    .quality-life .ql-ico-3 i {
+        background-position: 0 0
+    }
+
+    .quality-life .ql-ico-2 i {
+        background-position: 0 -150px
+    }
+
+    .quality-life .ql-ico-5 i {
+        background-position: 0 -50px
+    }
+
+    .quality-life .ql-ico-1 i {
+        background-position: 0 -100px
+    }
+
+    .quality-life .ql-ico-4 i {
+        background-position: 0 -200px
+    }
+
+    .quality-life .ql-ico-10 i {
+        background-position: 0 -300px
+    }
+
+    .quality-life .ql-ico-yuan i {
+        background-position: 0 -350px
+    }
+
+    .quality-life .fresh-ico-1 i {
+        background-position: 0 -401px
+    }
+
+    .quality-life .fresh-ico-3 i {
+        background-position: 0 -451px
+    }
+
+    .quality-life .fresh-ico-3 .fresh-wd {
+        font-size: 18px;
+        display: none
+    }
+
+    .quality-life .fresh-ico-2 i {
+        background-position: 0 -200px
+    }
+
+.detail-video-con {
+    padding: 20px 0
+}
+
+    .detail-video-con .video-wrap {
+        width: 750px;
+        height: 422px;
+        margin: 0 auto;
+        position: relative
+    }
+
+    .detail-video-con .video-player {
+        width: 750px;
+        height: 422px
+    }
+
+    .detail-video-con .play-btn {
+        width: 42px;
+        height: 42px;
+        background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/__sprite.png) -42px 0;
+        position: absolute;
+        left: 20px;
+        bottom: 20px
+    }
+
+    .detail-video-con .video-list {
+        position: relative;
+        width: 750px;
+        height: 144px;
+        overflow: hidden;
+        zoom: 1;
+        margin: 7px auto 0
+    }
+
+        .detail-video-con .video-list .ui-switchable-panel-main {
+            position: relative;
+            width: 756px;
+            height: 144px;
+            overflow: hidden
+        }
+
+        .detail-video-con .video-list .list-next, .detail-video-con .video-list .list-prev {
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            bottom: 32px;
+            width: 24px;
+            padding-top: 47px;
+            background: rgba(0,0,0,.5)
+        }
+
+            .detail-video-con .video-list .list-next i, .detail-video-con .video-list .list-prev i {
+                display: block;
+                margin: 0 auto
+            }
+
+            .detail-video-con .video-list .list-next .sprite-prev, .detail-video-con .video-list .list-prev .sprite-prev {
+                width: 9px;
+                height: 17px;
+                background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/__sprite.png);
+                background-position: -9px -42px
+            }
+
+            .detail-video-con .video-list .list-next .sprite-next, .detail-video-con .video-list .list-prev .sprite-next {
+                width: 9px;
+                height: 17px;
+                background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/__sprite.png);
+                background-position: 0 -42px
+            }
+
+            .detail-video-con .video-list .list-next.disabled, .detail-video-con .video-list .list-prev.disabled {
+                display: none
+            }
+
+        .detail-video-con .video-list .list-prev {
+            left: 0
+        }
+
+        .detail-video-con .video-list .list-next {
+            right: 7px
+        }
+
+        .detail-video-con .video-list li {
+            width: 189px;
+            float: left;
+            position: relative
+        }
+
+            .detail-video-con .video-list li:hover .mask, .detail-video-con .video-list li:hover .video-pause, .detail-video-con .video-list li:hover .video-play {
+                display: block
+            }
+
+            .detail-video-con .video-list li img {
+                margin-right: 7px
+            }
+
+        .detail-video-con .video-list .tips {
+            height: 18px;
+            line-height: 18px;
+            padding: 0 5px;
+            color: #fff;
+            border-radius: 3px;
+            position: absolute;
+            z-index: 4;
+            left: 4px;
+            top: 4px
+        }
+
+            .detail-video-con .video-list .tips.live {
+                background: #13ab41
+            }
+
+            .detail-video-con .video-list .tips.playback {
+                background: #ed444c
+            }
+
+        .detail-video-con .video-list .mask {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 182px;
+            height: 108px;
+            background: rgba(0,0,0,.5)
+        }
+
+        .detail-video-con .video-list .title {
+            line-height: 32px;
+            text-align: center;
+            background: #ededed;
+            color: #242424;
+            display: block;
+            margin-right: 7px;
+            font-size: 14px
+        }
+
+.book-review .review-con .more, .book-review .ui-page-wrap {
+    text-align: right
+}
+
+.detail-video-con .video-list .video-pause, .detail-video-con .video-list .video-play {
+    display: none;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    margin: -37px 0 0 -21px
+}
+
+.detail-video-con .video-list .video-play {
+    background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/__sprite.png) -42px 0
+}
+
+.detail-video-con .video-list .video-pause {
+    background-image: url(//static.360buyimg.com/item/unite/1.0.49/components/default/detail/i/__sprite.png);
+    background-position: 0 0
+}
+
+.building #detail .pro-detail-hd-fixed, .root61 .building #detail .tab-main.pro-detail-hd-fixed {
+    width: 1210px
+}
+
+.building #J-detail-content img {
+    margin: 0 auto;
+    display: block
+}
+
+.book-review {
+    padding: 20px 0 10px
+}
+
+    .book-review .has-more .more {
+        display: block
+    }
+
+    .book-review .open {
+        height: auto;
+        overflow: auto
+    }
+
+    .book-review .close {
+        height: 120px;
+        overflow: hidden
+    }
+
+    .book-review .review-item {
+        padding: 0 0 20px 10px
+    }
+
+        .book-review .review-item .user-line {
+            padding-left: 25px
+        }
+
+            .book-review .review-item .user-line .avatar {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                overflow: hidden;
+                vertical-align: middle
+            }
+
+                .book-review .review-item .user-line .avatar img {
+                    width: 40px;
+                    height: 40px
+                }
+
+            .book-review .review-item .user-line .name {
+                color: #000;
+                vertical-align: middle;
+                margin: 0 20px 0 10px
+            }
+
+            .book-review .review-item .user-line .star {
+                display: inline-block;
+                vertical-align: middle;
+                width: 78px;
+                height: 14px;
+                background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/comment/i/star.png) no-repeat
+            }
+
+            .book-review .review-item .user-line .star0 {
+                background-position: -80px 0
+            }
+
+            .book-review .review-item .user-line .star1 {
+                background-position: -64px 0
+            }
+
+            .book-review .review-item .user-line .star2 {
+                background-position: -48px 0
+            }
+
+            .book-review .review-item .user-line .star3 {
+                background-position: -32px 0
+            }
+
+            .book-review .review-item .user-line .star4 {
+                background-position: -16px 0
+            }
+
+            .book-review .review-item .user-line .star5 {
+                background-position: 0 0
+            }
+
+            .book-review .review-item .user-line .time {
+                float: right;
+                color: #999;
+                padding-top: 10px
+            }
+
+    .book-review .review-content {
+        line-height: 2em
+    }
+
+    .book-review .review-con {
+        background: #f9f9f9;
+        padding: 8px 18px;
+        line-height: 220%;
+        border-radius: 8px;
+        margin-top: 10px;
+        position: relative
+    }
+
+        .book-review .review-con .arrowUp {
+            position: absolute;
+            top: -8px;
+            left: 40px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid #f9f9f9
+        }
+
+        .book-review .review-con .more a {
+            color: #5e69ad
+        }
+
+.item-detail {
+    padding: 10px
+}
+
+.service-rule {
+    padding: 10px 20px;
+    line-height: 160%
+}
+
+    .service-rule h3 {
+        font-size: 14px;
+        color: #e4393c;
+        padding-bottom: 10px
+    }
+
+    .service-rule .rule-con {
+        padding-top: 8px
+    }
+
+        .service-rule .rule-con h4 {
+            color: #e4393c
+        }
+
+        .service-rule .rule-con ol {
+            padding-top: 4px
+        }
+
+        .service-rule .rule-con li {
+            list-style-type: decimal;
+            list-style-position: inside;
+            padding-left: 10px
+        }
+
+        .service-rule .rule-con strong {
+            display: block;
+            font-weight: 400;
+            margin-bottom: 8px;
+            padding-left: 10px
+        }
+
+            .service-rule .rule-con strong span {
+                font-weight: 700
+            }
+
+.er-same-tip {
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px
+}
+
+.pro-detail-hd-fixed-div {
+    position: fixed;
+    width: 100%;
+    border-bottom: solid 1px #dbdbdb;
+    left: 0;
+    top: 0;
+    height: 36.5px;
+    height: 38px\9;
+    background: #fff;
+    display: none
+}
+
+#J-detail-pop-tpl-top-new {
+    overflow: hidden
+}

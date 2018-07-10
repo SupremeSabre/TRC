@@ -1,0 +1,131 @@
+@charset "utf-8";
+/*
+ *分类样式
+ */
+.mo-view-fenlei{
+	background:#ededed;
+	padding-bottom:10px;
+}
+.mo-view-fenlei-list{
+	width:95%;
+	margin:0 auto;
+	margin-top:10px;
+}
+.mo-view-fenlei-list-sec-floor ul li{
+	float:left;
+	width:48%;
+	margin-top:10px;
+	
+}
+.mo-view-fenlei-list-sec-floor ul li.p_right{
+	padding-right:4%;
+}
+
+/*
+ *现货样式
+ */
+.mo-view-xianhuo-list ul li{
+	width:33%;
+	border-left:1px solid #e2e2e2;
+	float:left;
+	text-align:center;
+	margin:10px 0;
+}
+
+.mo-view-xianhuo-list ul li.first-child1,.mo-view-xianhuo-list ul li.first-child4,.mo-view-xianhuo-list ul li.first-child7{
+	border-left:none;
+}
+.mo-view-xianhuo-list ul li .name{
+	color:#333333;
+}
+.mo-view-xianhuo-list ul li .price{
+	color:#ff4081
+}
+
+/*
+ *人气样式
+ */
+.mo-view-renqi-list ul li{
+	float:left;
+	width:42.67%;
+}
+.mo-view-renqi-list ul li.gds_left{
+	width:57.33%;
+}
+.mo-view-renqi-tuijian{
+	position:relative;
+}
+.mo-view-renqi-tuijian .gds {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.mo-view-renqi-tuijian .gds a {
+    display: block;
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+.mo-view-content-link,.mo-footer-link{
+	width:320px;
+	margin:0 auto;
+}
+.mo-view-content-link ul li{
+	float:left;
+	margin:20px 0;
+	text-align:center;
+}
+.mo-view-content-list ul li{
+	width:50%;
+	float:left;
+	text-align:center;
+}
+.mo-view-content-list ul li:first-child,.mo-view-content-list ul li:last-child{
+	background:#f0f0f0;
+}
+.mo-view-content-list ul li .name{
+	color:#333333;
+}
+.mo-view-content-list ul li .price{
+	color:#fe616a
+}
+.mo-view-content-link-jiezhi li,.mo-view-content-link-diaozui li{
+	width:25%;
+}
+.mo-view-content-link-ershi li{
+	width:33%;
+}
+
+/*
+ *footer
+ */
+.mo-footer{
+	border-top:1px solid #f0f0f0;
+}
+.mo-footer-link{
+	margin-top:10px;
+}
+.mo-footer-link ul li{
+	float:left;
+	margin:10px 0;
+	text-align:center;
+	width:33%;
+}
+.mo-footer-phone{
+	position:relative;
+}
+.mo-footer-phone .copyright{
+	position: absolute;
+	top:66%;
+	width:100%;
+}
+.mo-footer-phone .copyright div{
+	width:320px;
+	margin:0 auto;
+	font-size:11px;
+}
+.mo-footer-phone .copyright div p{
+	text-align:center;
+}

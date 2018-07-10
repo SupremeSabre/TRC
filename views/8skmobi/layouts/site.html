@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>{$this->_siteConfig->name}</title>
+            <meta content="width=device-width, minimum-scale=1,initial-scale=1, maximum-scale=1, user-scalable=1;" id="viewport" name="viewport" />
+            <meta content="yes" name="apple-mobile-web-app-capable" />
+            <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+            <meta content="telephone=no" name="format-detection" />
+            <link type="image/x-icon" href="{webroot:favicon.ico}" rel="icon">
+                <link rel="stylesheet" href="{skin:css/bootstrap.min.css}" />
+                <link rel="stylesheet" href="{skin:css/bootstrap-theme.min.css}" />
+                <link rel="stylesheet" href="{theme:javascript/iconfont/font-awesome.min.css}" />
+                <link rel="stylesheet" href="{skin:css/8skSkin.css}" />
+                {js:jquery}
+                <script type='text/javascript' src='{theme:javascript/bootstrap.min.js}'></script>
+                <script type='text/javascript' src='{theme:javascript/PerfectLoad.js}'></script>
+                <script type='text/javascript' src='{theme:javascript/jquery.lazyload.js}'></script>
+                {js:form}
+                {js:validate}
+                {js:dialog}
+                {js:artTemplate}
+                <script type='text/javascript' src="{theme:javascript/common.js}"></script>
+                <script type='text/javascript' src='{theme:javascript/site.js}'></script>
+                </head>
+                <body>
+                    <script type="text/javascript">
+                        $(function () {
+                            $(".lazyload").lazyload({effect: "fadeIn"});
+                            $.MyCommon.PageLoading({sleep: 300, Tipsimages: "{skin:images/loading-0.gif}"});
+                        });
+                    </script> 
+                    <div class="page-index" id="showpage">
+                        {viewcontent}
+                    </div>
+
+                    <div class="top_search_box">
+                        <div class="top_search_i">
+                            <div class="top_search" >
+                                <div class="index_searchc">
+                                    <form id="searchForm" name="searchForm" method="get" action="{url:/}" class="searchform">
+                                        <input type='hidden' name='controller' value='site'/>
+                                        <input type='hidden' name='action' value='search_list' />
+                                        <input class="text" type="search" name="word" value="搜索你想找的商品" onFocus="if (this.value == '搜索你想找的商品') {
+                        this.value = '';
+                    }" onblur="if (this.value == '') {
+                                this.value = '搜索你想找的商品';
+                            }" id="keywordBox">
+                                            <button type="submit" value="搜索" class="iconfont">&#xe602;</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="header_top">
+                                {set:$top_name =null}
+                                {if:!$top_name}
+                                {set:$top_name = $this->_siteConfig->name}
+                                {/if}
+                                <a id="kros_user" class="iconfont" href="javascript:void(0)" onClick="window.history.back();" title="返回">&#xe86b;</a>
+                                <span class="headline">{$top_name}</span>
+                                <a class="iconfont iconfont_search" href="javascript:void(0)" onclick="topSearch();" title="搜索">&#xe769;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nav" id="nav">
+                        <div class="nav_nav-wrap">
+                            <div class="nav_nav-item">
+                                <a href="{$this->_siteConfig->url}" class="nav_nav-link">
+                                    <i class="iconfont">&#xe80e;</i>
+                                    <span class="nav_nav-tit">首页</span>
+                                </a>
+                            </div>
+                            <div class="nav_nav-item">
+                                <a href="tel:{$this->_siteConfig->phone}" class="nav_nav-link">
+                                    <i class="iconfont">&#xe76c;</i>
+                                    <span class="nav_nav-tit">联系我们</span>
+                                </a>
+                            </div>
+                            <div class="nav_nav-item">
+                                <a href="{url:/site/category}" class="nav_nav-link">
+                                    <i class="iconfont">&#xe62c;</i>
+                                    <span class="nav_nav-tit">分类</span>
+                                </a>
+                            </div>
+                            <div class="nav_nav-item">
+                                <a href="{url:/simple/cart}" class="nav_nav-link">
+                                    <i class="iconfont">&#xe629;</i>
+                                    <span class="nav_nav-tit">购物车</span>
+                                    <span class="nav_nav-shop-cart-num" name="mycart_count">{$myCartInfo['count']}</span>
+                                </a>
+                            </div>
+                            <div class="nav_nav-item">
+                                <a href="{url:/ucenter/index}" class="nav_nav-link">
+                                    <i class="iconfont">&#xe628;</i>
+                                    <span class="nav_nav-tit">用户中心</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <nav>
+                            <ul class="pagination">
+                                <li><a href="tel:{$this->_siteConfig->phone}">联系我们</a></li>
+                                <li><a href="{url:/site/help_list}">购物帮助</a></li>
+                                <li><a href="{url:/site/sitemap}">网站地图</a></li>
+                                <li><a href="{url:/ucenter/index}">用户中心</a></li>
+                            </ul>
+                        </nav>
+                        <p class="text-muted">{echo:IFilter::stripSlash($this->_siteConfig->site_footer_code)}</p>
+                    </div>
+                    <a style="display:inline;" href="javascript:void(0)" class="u-backtop"><span class="iconfont" id="goTop">&#xe754;</span></a>
+                </body>
+                </html>

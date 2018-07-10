@@ -1,0 +1,73 @@
+{set:$top_name = "头像上传"}
+<script src="{theme:javascript/ajaxfileupload/ajaxfileupload.js}"></script>
+<div class="upload-box">
+    <div class="ly_photo_box">
+    <a href="javascript:;" class="file"><i class="iconfont">&#xe8a4;</i><span class="showFileName">点击选择照片</span><b class="fileerrorTip">已选择照片请点击上传照片</b><input type="file" id="photo" name="photo"></a>
+    <a id="photoBtn" href="javascript:void(0)">上传照片</a>
+    </div>
+</div>
+
+<div class="ly_section">
+    <div class="photo_box">
+        <div id="clipArea"></div>
+        <button id="clipBtn">保存头像</button>
+    </div>
+</div>
+
+<script src="{theme:javascript/photoClip/hammer.js}"></script>
+<script src="{theme:javascript/photoClip/iscroll-zoom.js}"></script>
+<script src="{theme:javascript/photoClip/lrz.all.bundle.js}"></script>
+<script src="{theme:javascript/photoClip/jquery.photoClip.js}"></script>
+<script type="text/javascript">
+jQuery(function(){
+	$(".file").on("change","input[type='file']",function(){
+		var filePath=$(this).val();
+		if(filePath.indexOf("jpg")!=-1 || filePath.indexOf("png")!=-1 || filePath.indexOf("gif")!=-1 || filePath.indexOf("jpeg")!=-1){
+			$(".fileerrorTip").show(200);
+			var arr=filePath.split('\\');
+			var fileName=arr[arr.length-1];
+			$(".showFileName").html(fileName);
+		}else{
+		    $(".showFileName").hide();
+			$(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+			return false 
+		}
+	})
+	
+    $("#photoBtn").click(function(){     
+        $.ajaxFileUpload({
+			url:'{url:/bsk/user_ico_upload}',
+			type: 'post',
+			secureuri :false,
+			fileElementId :'photo',
+			dataType:'json',   
+			success:function(data){
+			    $('.upload-box').hide(200);
+				$('.user_warp').hide(200);
+			    $('.photo_box').show(200);
+
+				var clipArea = new bjj.PhotoClip("#clipArea", {
+					size: [200,200],
+					outputSize: [300,300],
+					outputType: "jpg", // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+					file: "#file",
+					source: "{echo:IUrl::creatUrl()}"+data,
+					view: "#ico",
+					ok: "#clipBtn",
+					loadStart: function(file){},
+					loadComplete: function(src){}, // 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
+					loadError: function(event){}, // 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
+					clipFinish: function(dataURL) {
+						$.post("{url:/bsk/user_ico_save}",data={str: dataURL},function(json){
+							window.location.href="{url:/ucenter/index}"
+						})
+					}
+				});
+		   
+			},
+			error:function(){}
+        })
+		return false;
+    })
+})
+</script>

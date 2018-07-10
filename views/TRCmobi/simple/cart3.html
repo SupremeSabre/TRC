@@ -1,0 +1,43 @@
+{set:$top_name = "成功提交订单"}
+<div class="body_page_box">
+
+    {if:$this->user['user_id']}
+    <div class="alertBox alertBoxGo">
+        <p class="alertBoxContent">
+        <strong style="font-size:14px;">恭喜，已成功提交订单！</strong><br/>
+        订单编号：{$this->order_num}
+        </p>
+    </div>
+    {/if}
+    
+    <div class="list-group">
+        <div class="list-group-item">订单金额：{$this->final_sum}元</div>
+        <div class="list-group-item">备货时间：{$this->stockup_time}天</div>
+        <div class="list-group-item">支付方式：{$this->payment}</div>
+        <div class="list-group-item">配送方式：{$this->delivery}</div>
+    </div>
+    <div class="list-group">
+        <div class="list-group-item">收货人名：{$accept_name}</div>
+        <div class="list-group-item">联系方式：{$mobile}</div>
+        <div class="list-group-item">收货时间：{$accept_time}</div>
+        {if:$this->tax_title!=''}
+        <div class="list-group-item">发票抬头：{$this->tax_title}天</div>
+        {/if}
+    </div>
+
+    <!--不是货到付款并且支付方式为线上支付-->
+    {if:$this->deliveryType != 1 && $this->paymentType == 1}
+    {set:$tmpId=$this->order_id;}
+    <form action='{url:/block/doPay/order_id/$tmpId}' method='post' target='_blank'>
+        <div class="form-group has-feedback">
+        <input class="btn btn-warning btn-lg btn-block" type="submit" onclick="return dopay();" value="立即支付" />
+        </div>
+    </form>
+    {/if}
+</div>
+
+<script type="text/javascript">
+function dopay(){
+	confirm('支付是否成功',"window.location.href='{url:/ucenter/order}';");
+}
+</script>

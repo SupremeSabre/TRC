@@ -1,0 +1,25 @@
+<ERROR_BLOCK>
+excepInfo: select go.img,go.sell_price,go.name,go.id,go.market_price from iwebshop_commend_goods as co  where co.commend_id = 5 AND go.is_del = 0 AND go.id is not null   order by sort asc limit 10 
+ -- Unknown column 'go.img' in 'field list'
+excepFile: IWEB_PATH/lib/db/db_class.php
+excepLine: 148
+excepCode: 1000
+excepTime: 2018-06-08 08:31:01
+#0 IWEB_PATH/lib/core/query_class.php(170): IDB->query(select go.img,go.sell_price,go.name,go.id,go.market_price from iwebshop_commend_goods as co  where co.commend_id = 5 AND go.is_del = 0 AND go.id is not null   order by sort asc limit 10 )
+#1 IWEB_PATH/classes/api.php(158): IQuery->find()
+#2 IWEB_PATH/classes/api.php(63): Api::query()
+#3 IWEB_PATH/runtime/views/huawei/site/products.php(429): Api::run(getShopRecom,10)
+#4 IWEB_PATH/lib/web/controller/controllerbase_class.php(116): require(IWEB_PATH/runtime/views/huawei/site/products.php)
+#5 IWEB_PATH/lib/web/controller/controllerbase_class.php(82): IControllerBase->requireFile(IWEB_PATH/runtime/views/huawei/site/products.php)
+#6 IWEB_PATH/lib/web/controller/controller_class.php(167): IControllerBase->renderView(IWEB_PATH/views/huawei/site/products,)
+#7 IWEB_PATH/lib/web/action/view_action.php(35): IController->render(IWEB_PATH/views/huawei/site/products,)
+#8 IWEB_PATH/lib/web/controller/controller_class.php(374): IViewAction->run()
+#9 IWEB_PATH/controllers/site.php(453): IController->redirect(products)
+#10 : Site->products()
+#11 IWEB_PATH/lib/web/action/inline_action.php(24): call_user_func()
+#12 IWEB_PATH/lib/web/controller/controller_class.php(115): IInlineAction->run()
+#13 IWEB_PATH/lib/core/webapplication_class.php(75): IController->run(products)
+#14 IWEB_PATH/lib/core/application_class.php(94): IWebApplication->execRequest()
+#15 IWEB_PATH/index.php(5): IApplication->run()
+</ERROR_BLOCK>
+

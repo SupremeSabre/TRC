@@ -1,0 +1,60 @@
+{set:$top_name = "地址管理"}
+<div class="body_page_box">
+    <div class="list-group">
+        {foreach:items=$this->address}
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading"><strong>{$item['accept_name']}</strong><span>{$item['mobile']}</span></h4>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#666;">{$this->areas[$item['province']]}{$this->areas[$item['city']]}{$this->areas[$item['area']]}{$item['address']}</p>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#666;">{$item['zip']}</p>
+            <div class="list-group-item-heading" style="height:20px; line-height:20px; margin-bottom:0px;">
+                <div class="pull-left">
+                    {if:$item['is_default']==1}
+                    <a class="lyred" href="{url:/ucenter/address_default/id/$item[id]/is_default/0}">取消默认</a>
+                    {else:}
+                    <a class="lyblue" href="{url:/ucenter/address_default/id/$item[id]/is_default/1}">设为默认</a>
+                    {/if}
+                </div>
+                <div class="pull-right">
+                    <a href='javascript:void(0)' onclick='editAddress({$item['id']})'>修改</a>
+                    <a href="javascript:void(0)" style="padding-left:10px;" onclick="delModel({link:'{url:/ucenter/address_del/id/$item[id]}'});">删除</a>
+                </div>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+    
+    <div class="form-group has-feedback">
+    <input class="btn btn-warning btn-lg btn-block" type="submit" value="新增地址" onclick="editAddress();"/>
+    </div>
+</div>
+
+<script type='text/javascript'>
+//地址修改
+function editAddress(addressId){
+	art.dialog.open(creatUrl("block/address/id/"+addressId),
+	{
+		"id":"addressWindow",
+		"title":"收货地址",
+		"ok":function(iframeWin, topWin){
+			var formObject = iframeWin.document.forms[0];
+			if(formObject.onsubmit() === false)
+			{
+				alert("请正确填写各项信息");
+				return false;
+			}
+			$.getJSON(formObject.action,$(formObject).serialize(),function(content){
+				if(content.result == false)
+				{
+					alert(content.msg);
+					return;
+				}
+				window.location.reload();
+			});
+			return false;
+		},
+		"okVal":"提交",
+		"cancel":true,
+		"cancelVal":"取消",
+	});
+}
+</script>

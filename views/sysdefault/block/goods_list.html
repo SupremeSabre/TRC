@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品列表</title>
+<link rel="stylesheet" href="{skin:css/admin.css}" />
+{js:jquery}
+{js:dialog}
+</head>
+{set:$dev = IClient::getDevice()}
+{if:$dev=="pc"}
+<body>
+<div class="pop_win" style="width:690px;height:550px;overflow-y:scroll">
+	<div class="content">
+		<table class="border_table" style="width:100%">
+			<colgroup>
+				<col width="150px" />
+				<col />
+				<col width="90px" />
+				<col width="70px" />
+			</colgroup>
+			<tbody>
+				{if:$this->data}
+				{foreach:items = $this->data}
+				<tr>
+					<td>
+						<label class='attr'>
+							<input type='{echo:($this->type == null) ? 'checkbox' : $this->type}' name='id[]' value="{$item['goods_id']}" id="goods{$key}" />
+							{$item['goods_no']}
+							<script>$("#goods{$key}").attr('data',JSON.stringify({echo:JSON::encode($item)}));</script>
+						</label>
+					</td>
+					<td class="t_l">
+						{$item['name']}
+						{set:$spec_array=Block::show_spec($item['spec_array']);}
+						{foreach:items=$spec_array item=$specValue key=$specName}
+						<p>{$specName}：{$specValue}</p>
+						{/foreach}
+					</td>
+					<td>￥{$item['sell_price']}</td>
+					<td><img src="{url:$item['img']}" width="40px" class="img_border" /></td>
+				</tr>
+				{/foreach}
+				{else:}
+				<tr>
+					<td colspan="4">对不起，没有找到相关商品</td>
+				</tr>
+				{/if}
+			</tbody>
+		</table>
+	</div>
+</div>
+{else:}
+<body class="__goods">
+	<section class="__goods_list">
+		<ul>
+			{if:$this->data}
+			{foreach:items = $this->data}
+			<li>
+				<label>
+					<input type='{echo:($this->type == null) ? 'checkbox' : $this->type}' name='id[]' value="{$item['goods_id']}" data='{echo:JSON::encode($item)}' />
+					<div class="__goods_item">
+						<img src="{url:$item[img]}"  />
+						<h4>{$item['name']}</h4>
+						<em>价格：￥{$item['sell_price']}</em>
+					</div>
+				</label>
+			</li>
+			{/foreach}
+			{else:}
+			对不起，没有找到相关商品
+			{/if}
+		</ul>
+	</section>
+<style>
+.__goods {width: 290px;}
+.__goods,.__goods * {margin: 0;padding: 0;list-style: none;}
+.__goods .__goods_list {padding: 8px;max-height: 500px;overflow-y: scroll;}
+.__goods .__goods_list ul{overflow: hidden;width: 270px;}
+.__goods .__goods_list ul li{width: 135px;float: left;margin-bottom: 10px;}
+.__goods .__goods_list ul li label{display: block;width: 130px;margin: auto;padding: 2.5px;}
+.__goods .__goods_list ul li label input {display: none;}
+.__goods .__goods_list ul li label .__goods_item {}
+.__goods .__goods_list ul li label input:checked + .__goods_item {background: yellow;box-shadow: 0 0 0 5px yellow}
+.__goods .__goods_list ul li label .__goods_item img{display: block;width: 130px;height: 130px;}
+.__goods .__goods_list ul li label .__goods_item h4{height: 40px;line-height: 20px;font-weight: normal;display: block;overflow: hidden;text-align: left;}
+.__goods .__goods_list ul li label .__goods_item em{display: block;text-align: left;color:red;}
+</style>
+
+{/if}
+</body>
+</html>

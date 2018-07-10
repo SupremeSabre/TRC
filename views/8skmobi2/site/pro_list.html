@@ -1,0 +1,33 @@
+{set:$top_name = $this->catRow['name']}
+{set:$breadGuide = goods_class::catRecursion($this->catId)}
+{set:$goodsObj = search_goods::find(array('category_extend' => $this->childId),21);$resultData = $goodsObj->find()}
+
+<div class="ly_por_box">
+    <!--商品条件筛选-->
+    {include:_goods_list_filter}
+    {if:$resultData}
+    <ul>
+    {foreach:items=$resultData}
+    <li name="goodsItems" class="win">
+    <a title="{$item['name']}" class="pic" href="{url:/site/products/id/$item[id]}"><img class="lazyload" src="{url:/pic/thumb/img/$item[img]/w/200/h/200}" alt="{$item['name']}" title="{$item['name']}"/></a>
+    <div class="r_text">
+        <h3 class="title"><a title="{$item['name']}" href="{url:/site/products/id/$item[id]}">{$item['name']}</a></h3>
+        <div class="price"><b>￥{$item['sell_price']}</b><s>￥{$item['market_price']}</s></div>
+        <div class="handle">
+            <input type="button" class="bt1" value="加入购物车" onclick="joinCart_list({$item['id']});">
+            <input type="button" class="bt2" value="收藏" onclick="favorite_add_ajax('{$item['id']}',this);">
+        </div>
+    </div>
+    </li>
+    {/foreach}
+    </ul>
+    {$goodsObj->getPageBar()}
+
+    {else:}
+    <div class="ly_row">
+       <span class="ly-circle"><i class="iconfont">&#xe660;</i></span>
+       <h2>对不起，没有找到相关商品</h2>
+    </div>
+    {/if}
+    <!--商品列表展示-->
+</div>

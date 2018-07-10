@@ -1,0 +1,33 @@
+{set:$top_name = "短消息"}
+<div class="ly_message_Wrapper">
+    {set:$queryMessageList = Api::run('getUcenterMessageList',$msgIds)}
+    {foreach:items = $queryMessageList->find()}
+    <div class="new_message_box">
+        <div class="m_title"><strong>{$item['title']}</strong><span>{$item['time']}</span></div>
+        <div id='show_msg_{$item['id']}' class="show_msg" style="display:none">{$item['content']}</div>
+        <div class="b_more" id='more_{$item['id']}'><a href="javascript:void(0)" onclick='show_msg(this,{echo:JSON::encode($item)})'><b>阅读全文</b><strong id="msg_id_{$item['id']}">{if:$msgObj->is_read($item['id'])}已读{else:}未读{/if}</strong></a></div>
+        <div class="d_more" id='del_{$item['id']}'><a href="{url:/ucenter/message_del/id/$item[id]}"><b>删除</b></a></div>
+    </div>
+    {/query}
+    {$queryMessageList->getPageBar()}
+</div>
+
+<script type="text/javascript">
+//阅读消息
+function show_msg(_self,obj){
+    $(".show_msg").hide();
+	$(".b_more").show();
+	$(".d_more").hide();
+	
+	$("#show_msg_"+obj.id).show();
+	$("#more_"+obj.id).hide();
+	$("#del_"+obj.id).show();
+
+    $.get("{url:/ucenter/message_read}",{"id":obj.id},function(data){
+	    if(data == 1){
+	    	$("#msg_id_"+obj.id).addClass('bold');
+	    	$("#msg_id_"+obj.id).html('已读');
+	    }
+    })
+}
+</script>

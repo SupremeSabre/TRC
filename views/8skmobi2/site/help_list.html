@@ -1,0 +1,12 @@
+{set:$top_name = "购物帮助"}
+<div class="body_page_box">
+    <div class="list-group">
+    {foreach:items = $this->helpQuery->find()}
+      <a href="{url:/site/help/id/$item['id']}" class="list-group-item">
+        <h4 class="list-group-item-heading" style="font-size:14px;">{$item['name']}</h4>
+        <p class="list-group-item-text" style="color:#999;">{echo:date('Y-m-d H:i:s',$item['dateline']);}</p>
+      </a>
+    {/foreach}
+    </div>
+    {$this->helpQuery->getPageBar();}
+</div>

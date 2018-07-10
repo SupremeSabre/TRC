@@ -1,0 +1,18 @@
+{set:$top_name = "操作成功"}
+<div class="ly_row">
+   <span class="ly-ok"><i class="iconfont">&#xe646;</i></span>
+   <h2 class="x">{echo:IReq::get('message') ? IFilter::act(urldecode(IReq::get('message')),'text') : '操作成功！'}</h2>
+   <p>
+    您现在可以去：
+    {set:$callback = plugin::trigger('getCallback')}
+    {if:$callback}
+    <a class="blue" href="{url:$callback}">继续操作 >></a>
+    {/if}
+
+    {if:$this->user['user_id']}
+    <a class="blue" href="{url:/ucenter/index}">个人中心 >></a>
+    {/if}
+
+    <a class="blue" href="{url:/site/index}">网站首页 >></a>
+    </p>
+</div>

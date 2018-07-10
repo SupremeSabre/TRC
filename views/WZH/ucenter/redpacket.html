@@ -1,0 +1,12 @@
+{set:$top_name = "我的代金券"}
+<div class="body_page_box">
+    {set:$queryPropList = Api::run('getPropList',$propId)}
+    {foreach:items = $queryPropList->find()}
+    <div class="bank_box">
+        <i class="iconfont">&#xe778;</i>
+        <strong>{$item['value']}</strong>
+        <p>卡号：{$item['card_name']}&nbsp;&nbsp;&nbsp;&nbsp;卡密：{$item['card_pwd']}</p>
+        <p>有效期：{echo:substr($item['end_time'],0,10)}（{echo:ticket::statusText(ticket::status($item))}）</p>
+    </div>
+    {/foreach}
+</div>

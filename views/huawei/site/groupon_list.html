@@ -1,0 +1,59 @@
+<div class="bigweb">
+<section class="breadcrumb">
+	<span>您当前的位置：</span> <a href="{url:}">首页</a> » <a href="{url:/site/groupon}">团购</a> » 往期团购
+</section>
+
+<section class="web">
+	<section class="main">
+		<h2 class="main_head">往期团购</h2>
+		<section class="groupon_list">
+			{set:$page = IReq::get('page') ? IFilter::act(IReq::get('page'),'int') : 1}
+			{set:$query=Api::run("getEverRegimentList",array('page',$page))}
+			{set:$grouponList = $query->find()}
+			{if:$grouponList}
+			<ul>
+
+				{foreach:items = $grouponList}
+				<li>
+					<a href="{url:/site/products/id/$item['goods_id']/}">
+						<img alt="{$item['title']}" src="{url:/pic/thumb/img/$item[img]/w/205/h/205}">
+						<strong>{$item['title']}</strong>
+						<span>销量：{$item['sum_count']}</span>
+						<del>团购价：￥{$item['regiment_price']}</del>
+						<em>现价：￥{$item['sell_price']}</em>
+					</a>
+				</li>
+				{/foreach}
+			</ul>
+			{else:}
+			<section class="no_tip">暂无数据</section>
+			{/if}
+			{$query->getPageBar()}
+		</section>
+	</section>
+	<aside class="bar">
+		<div class="bar_box">
+			<h3 class="bar_box_head">热卖商品</h3>
+			<ul class="bar_goods">
+				{foreach:items=Api::run('getCommendHot',5)}
+				<li>
+					<a href="{url:/site/products/id/$item[id]}">
+						<img src="{url:/pic/thumb/img/$item['img']/w/60/h/60}" alt="{$item['name']}">
+						<strong>{$item['name']}</strong>
+						<em>￥{$item['sell_price']}</em>
+					</a>
+				</li>
+				{/foreach}
+			</ul>
+		</div>
+		<div class="bar_box">
+			<h3 class="bar_box_head">团购须知：</h3>
+			<ol class="bar_tip">
+				<li>因机会有限下单成功后必须立即支付。</li>
+				<li>每个团购活动都有库存量或者购买限制。</li>
+			</ol>
+		</div>
+	</aside>
+</section>
+
+</div>

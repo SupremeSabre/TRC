@@ -1,0 +1,101 @@
+.crumb-br .br-list li, .ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.layout-area {
+    z-index: 9 !important;
+    position: relative
+}
+
+.crumb, .crumb-wrap {
+    position: relative;
+    z-index: 5
+}
+
+.crumb-wrap {
+    background: #f2f2f2;
+    *z-index: 2;
+    clear: both
+}
+
+.crumb {
+    padding: 13px 0 9px
+}
+
+    .crumb .item {
+        float: left
+    }
+
+    .crumb .sep {
+        font-family: simsun;
+        padding: 0 10px
+    }
+
+.hover div.border .head {
+    border-bottom: none;
+    padding-bottom: 1px
+}
+
+.crumb-br {
+    top: -2px
+}
+
+    .crumb-br .inner {
+        _float: left;
+        _position: relative
+    }
+
+    .crumb-br .arrow {
+        margin-left: 0
+    }
+
+    .crumb-br .border .head {
+        border-bottom: 1px solid #ccc;
+        height: 20px;
+        line-height: 20px;
+        background-color: #fff
+    }
+
+    .crumb-br .hover .head {
+        border-bottom: none
+    }
+
+    .crumb-br .head a {
+        padding: 0 5px
+    }
+
+    .crumb-br .plist-1 {
+        padding-bottom: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px dotted #dfdfdf;
+        display: none
+    }
+
+    .crumb-br .br-reco li {
+        width: 206px;
+        height: 65px;
+        margin-left: 5px;
+        clear: none
+    }
+
+    .crumb-br .content {
+        top: 20px;
+        width: 660px;
+        padding: 10px 0
+    }
+
+    .crumb-br .br-list li {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        width: 110px;
+        padding-left: 15px;
+        margin-top: 5px
+    }
+
+.ellipsis {
+    width: 120px
+}

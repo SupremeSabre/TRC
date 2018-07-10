@@ -1,0 +1,62 @@
+{set:$top_name = "商品评论列表"}
+<div class="body_page_box">
+    <div class="list-group">
+    <div class="list-group-item">
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="{url:/site/products/id/$this->goods['goods_id']}"><img src="{url:/pic/thumb/img/$this->goods['img']/w/110/h/110}" alt="{$this->goods['name']}"></a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"><a href="{url:/site/products/id/$this->goods['goods_id']}">{$this->goods['name']}</a></h4>
+                <p class="f_favor">￥{$this->goods['sell_price']}</p>
+                <div class="ly_store" style="padding-left:0px;"><p>评论数：{$this->commentCount['comment_total']}条</p></div>
+                <p style="padding-left:0px;"><a class="btn b-danger btn-sm" href="javascript:;" onclick="joinCart_list({$this->goods['goods_id']});">加购物车</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    {set:$type = IFilter::act(IReq::get('type'))}
+    <div class="btn-group btn-group-justified" style="margin-bottom:12px;">
+        <div class="btn-group">
+        <div class="btn {if:!$type}btn-warning{else:}b-default{/if}"><a href="{url:/site/comments_list/id/$this->goods['goods_id']}">全部({$this->commentCount['comment_total']}条)</a></div>
+        </div>
+        <div class="btn-group">
+        <div class="btn {if:$type == good}btn-warning{else:}b-default{/if}"><a href="{url:/site/comments_list/id/$this->goods['goods_id']/type/good}">好({$this->commentCount['point_grade']['good']}条)</a></div>
+        </div>
+        <div class="btn-group">
+        <div class="btn {if:$type == middle}btn-warning{else:}b-default{/if}"><a href="{url:/site/comments_list/id/$this->goods['goods_id']/type/middle}">中({$this->commentCount['point_grade']['middle']}条)</a></div>
+        </div>
+        <div class="btn-group">
+        <div class="btn {if:$type == bad}btn-warning{else:}b-default{/if}"><a href="{url:/site/comments_list/id/$this->goods['goods_id']/type/bad}">差({$this->commentCount['point_grade']['bad']}条)</a></div>
+        </div>
+    </div>
+    
+    <div class="list-group">
+    {foreach:items=$this->commentQuery->find()}
+        <div class="list-group-item">
+        <div class="media">
+            <div class="media-left media-middle">
+                <img src="{$item['head_ico']}" width="70px" height="70px" onerror="this.src='{skin:images/front/user_ico.gif}'" />
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"><strong>{$item['username']}</strong><span>{$item['time']}</span></h4>
+                <div class="ly_store" style="padding-left:0px;"><p>评分：{$item['point']}</p></div>
+                <p style="padding-left:0px;"><b>评语：</b><span class="gray">{$item['contents']}</span></p>
+                {if:$item['recontents']}
+                <p class="prompt" style="margin-top:5px;"><b>回复：</b><span class="gray">{$item['recontents']}</span></p>
+                {/if}
+            </div>
+        </div>
+        </div>
+    {/foreach}
+    </div>
+    {$this->commentQuery->getPageBar()}
+
+</div>
+
+<script type="text/javascript">
+	{set:$type=IFilter::act(IReq::get('type'))}
+	var tipsName = "tips{$type}";
+	$('[name="'+tipsName+'"]').addClass('current');
+</script>

@@ -1,0 +1,50 @@
+{set:$top_name = "个人积分"}
+<div class="body_page_box">
+    <div class="prompt">您当前的积分：<b class="brown">{$this->memberRow['point']}</b>分</div>
+    <div class="list-group">
+        {set:$queryPointLog = Api::run('getUcenterPointLog',$this->user['user_id'],$this->c_datetime)}
+        {foreach:items = $queryPointLog->find()}
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading"><strong>{$item['value']}分</strong><span>{$item['datetime']}</span></h4>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#666;">{$item['intro']}</p>
+        </div>
+        {/foreach}
+    </div>
+    {$queryPointLog->getPageBar()}
+    
+    <form action='{url:/ucenter/trade_ticket}' method='post'>
+    <div class="list-group">
+        {set:$nowtime = ITime::getDateTime();$isHasTicket = false;}
+        {foreach:items=Api::run('getTicketList',array('#nowtime#',$nowtime),20)}
+        {set:$isHasTicket = true;}
+        <label class="list-group-item">
+            <h4 class="list-group-item-heading"><b><input type="radio" name='ticket_id' value="{$item['id']}" style="margin-top:0px;"/></b><span style="color:#333;">{$item['name']}：{$item['value']}元（需要{$item['point']}积分）</span></h4>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#999; font-weight:500;">有效日期：{$item['start_time']}至{$item['end_time']}</p>
+        </label>
+        {/foreach}
+        {if:$isHasTicket == false}
+        <label class="ly-group">暂无代金券</label>
+        {/if}
+    </div>
+    
+    <div class="form-group has-feedback">
+    <input class="btn btn-warning btn-lg btn-block" type="submit" value="兑换代金券"/>
+    </div> 
+
+    </form>
+    
+    <div class="list-group">
+        <label class="list-group-item">
+		<p><strong>提示：</strong></p>
+		<p style="color:#999; font-weight:500;">1、您兑换的代金券为电子券，根据代金券的不同，会具有不同的有效期</p>
+		<p style="color:#999; font-weight:500;">2、电子代金券仅限本ID使用，不能折算为现金、也不能再次兑换为积分</p>
+        </label>
+	</div>
+</div>
+
+<script type='text/javascript'>
+var FromObj = new Form('point_history');
+FromObj.init({
+	'history_time':'{$this->historyTime}'
+});
+</script>

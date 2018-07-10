@@ -1,0 +1,6 @@
+{set:$msg = IReq::get('msg') ? IReq::get('msg') : '发生错误'}
+{set:$top_name = "发生错误"}
+<div class="ly_row">
+   <span class="ly-circle"><i class="iconfont">&#xe660;</i></span>
+   <h2>{echo:htmlspecialchars($msg,ENT_QUOTES)}</h2>
+</div>

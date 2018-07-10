@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+            <!-- 输出普通的文本信息 -->
+            输出普通模型：{echo:Demo_Class::show();}
+
+            <!-- 输出数据表单条详细数据 -->
+            <hr><br />
+            输出数组：{set:$arrInfo = Demo_Class::adminInfo(); echo $arrInfo['last_ip'];}
+
+
+            <!-- 输出数据表列表信息 -->
+            <hr><br />
+            {foreach:items = Demo_Class::adminList()}
+            {$item['username']}<br />
+            {/foreach}
+    </body>
+</html>

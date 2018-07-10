@@ -1,0 +1,22 @@
+{set:$top_name = "我的订单"}
+<div class="body_page_box">
+    <div class="list-group">
+        {set:$queryOrderList = Api::run('getOrderList',$this->user['user_id'])}
+        {foreach:items = $queryOrderList->find()}
+        <a class="list-group-item" href="{url:/ucenter/order_detail/id/$item[id]}">
+            <h4 class="list-group-item-heading"><strong>￥{echo:$item['order_amount']}元</strong><span>{$item['create_time']}</span></h4>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#666;">{$item['accept_name']}&nbsp;&nbsp;&nbsp;&nbsp;{$item['order_no']}</p>
+
+            <div class="form-group has-feedback" style="height:20px; line-height:20px; margin-bottom:0px;">
+                <div class="pull-left">{$this->payments[$item['pay_type']]['name']}</div>
+                {if:$item['pay_status'] == 0}
+                <div class="pull-right"><strong class="no">{echo:Order_Class::orderStatusText(Order_Class::getOrderStatus($item))}</strong></div>
+                {else:}
+                <div class="pull-right"><strong class="ok">{echo:Order_Class::orderStatusText(Order_Class::getOrderStatus($item))}</strong></div>
+                {/if}
+            </div>
+        </a>
+        {/foreach}
+    </div>
+    {$queryOrderList->getPageBar()}
+</div>

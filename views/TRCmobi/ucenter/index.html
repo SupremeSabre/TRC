@@ -1,0 +1,58 @@
+{set:$top_name = "会员中心"}
+{set:$user_id = $this->user['user_id']}
+
+<div class="user_top">
+    <span><a href="{url:/ucenter/photo}"><img id="user_ico_img" src="{$this->user['head_ico']}" width="100" height="100" onerror="this.src='{skin:images/user_ico.gif}'" /></a></span>
+    <div class="user_info">
+        <ul>
+        <li class="u1">{$this->user['username']}</li>
+        <li>金额：￥{$user['balance']}</li>
+        <li>积分：{$user['point']}</li>
+        <li><a href="{url:/simple/logout}" class="sgin_day">退出登录</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="user_pic_nav">
+    <ul>
+    <li class="xx1"><a href="{url:/ucenter/order}"><i class="iconfont">&#xe6ac;</i><span>我的订单</span></a></li>
+    <li class="xx1"><a href="{url:/ucenter/address}"><i class="iconfont">&#xe6a4;</i><span>收货地址</span></a></li>
+    <li class="xx1"><a href="{url:/ucenter/online_recharge}"><i class="iconfont">&#xe870;</i><span>在线充值</span></a></li>
+    <li><a href="{url:/ucenter/info}"><i class="iconfont">&#xe7c3;</i><span>资料设置</span></a></li>
+    </ul>
+</div>
+
+<div class="user_menu_list">
+    <ul>
+    <li class="us1"><a href="{url:/ucenter/integral}"><i class="iconfont">&#xe6a3;</i><span>我的积分</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us2"><a href="{url:/ucenter/message}"><i class="iconfont">&#xe666;</i><span>站内信 {if:$msgNum>0}{$msgNum}{/if}</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us3"><a href="{url:/ucenter/favorite}"><i class="iconfont">&#xe848;</i><span>我的收藏</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us9"><a href="{url:/ucenter/evaluation}"><i class="iconfont">&#xe971;</i><span>商品评论</span><b class="iconfont">&#xe62a;</b></a></li>
+    
+    </ul>
+</div>
+<div class="user_menu_list">
+    <ul>
+    <li class="us4"><a href="{url:/ucenter/redpacket}"><i class="iconfont">&#xe811;</i><span>我的代金券</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us5"><a href="{url:/ucenter/refunds}"><i class="iconfont">&#xe8d9;</i><span>我的退款</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us2"><a href="{url:/ucenter/withdraw}"><i class="iconfont">&#xe8c0;</i><span>我的提现</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us1"><a href="{url:/ucenter/password}"><i class="iconfont">&#xe83a;</i><span>修改密码</span><b class="iconfont">&#xe62a;</b></a></li>
+    </ul>
+</div>
+
+<div class="user_menu_list" style="border-bottom:0px;">
+    <ul>
+    <li class="us6"><a href="{url:/site/notice}"><i class="iconfont">&#xe66a;</i><span>网站公告</span><b class="iconfont">&#xe62a;</b></a></li>
+    <li class="us7" style="border-bottom:0px;"><a href="{url:/site/help_list}"><i class="iconfont">&#xe827;</i><span>网站帮助</span><b class="iconfont">&#xe62a;</b></a></li>
+    </ul>
+</div>
+
+<!-- 如果没有头像显示弹层 -->
+{if:!$this->user['head_ico']}
+<div class="mask_bg">&nbsp;</div>
+<div class="photo_tips_mask">
+    <i class="iconfont">&#xe734;</i>
+    <div class="tips">换张头像，做个有头有脸的人</div>
+    <a href="{url:/ucenter/photo/}">马上上传</a>
+</div>
+{/if}

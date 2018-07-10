@@ -1,0 +1,25 @@
+{set:$id = IReq::get('id') ? IFilter::act(IReq::get('id'),'int') : 0;}
+{set:$top_name = "全部分类"}
+<div class="category_body">
+    <div class="middle_all">
+        {set:$tmpon=0;}
+        {query:name=category where=parent_id eq 0 order=sort asc item=$trb}
+        {set:$parentid=$trb['id'];}
+        {set:$tmpon++;}
+        <dl>
+            <dt {if:$id == $trb[id]}class="on"{/if}><a href="{url:/site/category/id/$trb[id]}" title="{$trb['name']}">{$trb['name']}</a></dt>
+        </dl>
+        {/query}
+    </div>
+    <div class="middle_all_body"> 
+        {query:name=category where=parent_id eq $id order=sort asc item=$xx}
+        {set:$parid=$xx['id'];}
+        <ul>
+        <b><a href="{url:/site/pro_list/cat/$xx[id]}" title="{$xx['name']}">{$xx['name']}</a></b>
+        {query:name=category where=parent_id eq $parid order=sort asc item=$bb}
+        <li><a href="{url:/site/pro_list/cat/$bb[id]}" title="{$bb['name']}">{$bb['name']}</a></li>
+        {/query}
+        </ul>
+        {/query}
+    </div>
+</div>

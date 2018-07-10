@@ -1,0 +1,17 @@
+{set:$top_name = "商城资讯"}
+<div class="body_page_box">
+    {foreach:items = $queryArticle->find()}
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <a href="{url:/site/article_detail/id/$item[id]}" title="{$item['title']}">
+            <h4 class="list-group-item-heading" style="font-size:16px;">{$item['title']}</h4>
+            <p class="list-group-item-text" style="color:#ccc; height:26px;">{$item['create_time']}</p>
+            {set:$str=$item['content'];$str2=strip_tags($str);}
+            <p class="list-group-item-text" style="color:#666; line-height:20px;">{echo:mb_substr($str2,0,168,"UTF-8")}...</p>
+          </a>
+      </div>
+      <div class="panel-footer"><a href="{url:/site/article_detail/id/$item[id]}" title="{$item['title']}">查看详情</a></div>
+    </div>
+    {/foreach}
+    {$queryArticle->getPageBar()}
+</div>

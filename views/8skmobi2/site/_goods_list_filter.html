@@ -1,0 +1,43 @@
+<!--商品排序展示-->
+<div class="display_top">
+    <div class="nav_toolbar">
+        {foreach:items=search_goods::getOrderType()}
+        <div class="ybtn" id="order_{$key}"><a href="{echo:search_goods::searchUrl(array('order','by'),array($key,search_goods::getOrderBy($key)))}">{$item}</a></div>
+        {/foreach}
+    </div>
+	<a class="show_b" href="{echo:search_goods::searchUrl('show_type','win')}" title='橱窗展示' alt='橱窗展示'><i class="iconfont">&#xe62b;</i></a>
+	<a class="show_s" href="{echo:search_goods::searchUrl('show_type','list')}" title='列表展示' alt='列表展示'><i class="iconfont">&#xe62c;</i></a>
+</div>
+<!--商品排序展示-->
+
+<script type='text/javascript'>
+//筛选条件按钮高亮
+jQuery(function(){
+
+	//排序字段
+	{set:$orderValue = IFilter::act(IReq::get('order'))}
+	{if:$orderValue}
+	$('#order_{$orderValue}').addClass('current');
+	{/if}
+
+	//顺序
+	{set:$byValue = IReq::get('by')}
+	{if:$byValue == "desc"}
+	$('#by_{$orderValue}').addClass('desc');
+	{else:}
+	$('#by_{$orderValue}').addClass('asc');
+	{/if}
+
+	//显示方式
+	{set:$showType = IReq::get('show_type');}
+	{if:$showType == "win"}
+	$('[name="goodsItems"]').attr({"class":"win"});
+	$('.show_s').show();
+	$('.show_b').hide();
+	{elseif:$showType == "list"}
+	$('[name="goodsItems"]').attr({"class":"list"});
+	$('.show_b').show();
+	$('.show_s').hide();
+	{/if}
+});
+</script>

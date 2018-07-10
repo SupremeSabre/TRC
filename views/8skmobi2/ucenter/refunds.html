@@ -1,0 +1,25 @@
+{set:$top_name = "我的退款"}
+<div class="body_page_box">
+    <div class="list-group">
+        {set:$queryRefundmentDocList = Api::run('getRefundmentDocList',$this->user['user_id'])}
+        {foreach:items = $queryRefundmentDocList->find()}
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading"><strong>退款订单号：{$item['order_no']}</strong></h4>
+            <p class="list-group-item-text" style="padding-bottom:6px; color:#666;">{$item['time']}</p>
+            <div class="form-group has-feedback" style="height:20px; line-height:20px; margin-bottom:0px;">
+                <div class="pull-left">
+                    {if:$item['pay_status']==0}<span class="lyred">{echo:Order_Class::refundmentText($item['pay_status'])}</span>{/if}
+                    {if:$item['pay_status']==1}<span class="lyred">{echo:Order_Class::refundmentText($item['pay_status'])}</span>{/if}
+                    {if:$item['pay_status']==2}<span class="lyblue">{echo:Order_Class::refundmentText($item['pay_status'])}</span>{/if}
+                </div>
+                
+                <div class="pull-right">
+                    {if:$item['pay_status']==0}<a href='javascript:delModel({link:"{url:/ucenter/refunds_del/id/$item[id]}"})'>取消</a>{/if}
+                    <a style="padding-left:10px;" href="{url:/ucenter/refunds_detail/id/$item[id]}">查看</a>
+                </div>
+            </div>
+        </div>
+        {/foreach}
+    </div>
+    {$queryRefundmentDocList->getPageBar()}
+</div>

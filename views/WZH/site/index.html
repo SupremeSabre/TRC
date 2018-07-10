@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=0;" />
+    <meta name='apple-itunes-app' content='app-id=1230330566'>
+    <title>首页</title>
+    <meta name="keywords" content="首页" />
+    <meta name="description" content="首页" />
+    <link rel="icon" href="http://www.moissanite.cn/app/mobile/staticsfavicon.ico" type="image/x-icon" />
+    <!--<link href="http://www.moissanite.cn/app/mobile/statics/css/common_wzh.css" rel="stylesheet" type="text/css"/>-->
+    <link href="{webroot:views/WZH/skin/Blue1/css/common.css}" rel="stylesheet" type="text/css"/>
+    <link href="{webroot:views/WZH/skin/Blue1/css/index.css}" rel="stylesheet" type="text/css"/>
+    <!--<link href="../skin/Blue1/css/index.css" rel="stylesheet" type="text/css" media="screen, projection" />-->
+    <script src="{webroot:views/wzh/javascript/jquery-1.8.3.min.js}" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="http://www.moissanite.cn/app/mobile/statics/js/common.js?static"></script>
+    <script type="text/javascript" src="http://www.moissanite.cn/app/mobile/statics/js/index.js?static"></script>
+    <link  rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!--头部-->
+    <header>
+        <div class="mo-header-logo"><span>泰瑞城</span></div>
+        <div class="mo-header-box">
+            <div class="mo-header-box-left f_left">
+                <!--<span class="mo-header-box-left-phone">
+                    <a href="tel:4006777520"><i class="mo-sprite-icon"></i></a>
+                </span>-->
+                <!--京东商城链接-->
+                <span class="mo-header-box-left-jd">
+                    <a href="https://mall.jd.com/index-620256.html" target="_blank"><i class="mo-sprite-big-icon"></i></a>
+                </span>
+            </div>
+            <div class="mo-header-box-right f_right">
+                <div class="mo-header-box-right-buy-cart f_left">
+                    <a href="http://www.moissanite.cn/mobile/cart.html"><span class="mo-sprite-icon"><i>0</i></span></a>
+                </div>
+                <div class="mo-header-box-right-account f_right">
+                    <!--<a href="http://www.moissanite.cn/mobile/member.html"><i class="mo-sprite-icon"></i></a>-->
+                    <!--<a href=" http://192.168.1.7/index.php?controller=simple&action=reg"><i class="mo-sprite-icon"></i></a>-->
+                    <a href=" {url:/simple/reg}"><i class="mo-sprite-icon"></i></a>
+                   
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </header>
+    <!--头部END-->
+    
+    <!--焦点图-->
+    <div class="mo-view-focus image-block">
+        <div id="focus" class="focus">
+            <div class="hd">
+                <ul></ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <!--<li><a href="http://m.moissanite.cn/mobile/gallery-28--7--1--index.html"><img src="http://img.moissanite.cn/public/images/c9/1b/8b/d4ab03c8c4252f2cf927bf8ca84cbc96.jpg?1526865805#w" /></a></li>
+                    <li><a href="http://www.moissanite.cn/m/act/act/mosangshi.html"><img src="http://img.moissanite.cn/public/images/24/c6/ba/1f649d4c0d0ec5f2904785b8a46f2f3a.jpg?1478155031#w" /></a></li>
+                    <li><a href="http://m.moissanite.cn/mobile/act/act/service2017.html?01"><img src="http://img.moissanite.cn/public/images/89/18/61/f17e18b7814d77e3b4dfa7fb8aec6f06.jpg?1524905826#w" /></a></li>
+                    <li><a href="http://m.moissanite.cn/mobile/act/act/service2017.html?02"><img src="http://img.moissanite.cn/public/images/e3/fd/f6/0549c0e53778b2a25f1eb33a8244166f.jpg?1505979566#w" /></a></li>
+                    <li><a href="http://m.moissanite.cn/mobile/act/act/service2017.html?03"><img src="http://img.moissanite.cn/public/images/21/be/91/7ddbdc0dddf1953217139504b0efc069.jpg?1505979575#w" /></a></li>
+                    <li><a href="http://www.moissanite.cn/m/act/act/mosangshi.html"><img src="http://img.moissanite.cn/public/images/bc/0e/84/851c86df407c82a930988f4ec30eca34.jpg?1478154992#w" /></a></li>
+                    <li><a href="http://m.moissanite.cn/m/act/act/luoshi2018.html"><img src="http://img.moissanite.cn/public/images/18/02/b0/38dd3006355f0f867c9b0b7833a62777.jpg?1516783850#h" /></a></li>
+                    -->
+             
+                33333333333333
+	{if:$this->index_slide}
+
+		{foreach:items=$this->index_slide}
+                <li><a href="{url:$item['url']}" ><img src="url({url:/pic/thumb/img/$item['img']}" /></a></li>
+		{/foreach}
+	{/if}                
+   </ul>
+                
+            </div>
+        </div>
+        <script type="text/javascript" src="/views/WZH/javascript/TouchSlide.1.1.js?static"></script>
+        <script type="text/javascript">
+            TouchSlide({
+                slideCell: "#focus",
+                titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                mainCell: ".bd ul",
+                effect: "left",
+                autoPlay: true,//自动播放
+                autoPage: true, //自动分页rc"
+                interTime: 6000,
+            });
+        </script>
+    </div>
+    <!--焦点图END-->
+    
+    
+    
+    <!--搜索-->
+    <!--<div class="mo-search">
+        <div class="mo-search-box">
+            <div class="mo-search-form-input f_left">
+                <input type="text" value="" placeholder="单钻款戒指" class="openSearchBlock" />
+            </div>
+            <div class="mo-search-form-submit f_left">
+                <a href="/mobile/gallery-23-8,225-0-0-1--index.html"><span class="mo-sprite-icon"></span></a>
+            </div>
+        </div>
+    </div>-->
+    <!--搜索END-->
+    <!--活动广告图-->
+    <div class="image-block">
+        <a href="http://m.moissanite.cn/mobile/gallery-28--7--1--index.html"><img src="http://img.moissanite.cn/public/images/19/6a/00/7eafa09a065a2fcdb00f62f710a6fc52.jpg?1526863066#w" /></a>
+    </div>
+    <!--活动广告图-->
+    
+<!--现货推荐 按要暂时隐藏，以后可按情况删除此功能，修改时间：2017.05.27-->
+    <div class="mo-view-xianhuo image-block">
+        <div><img src="http://www.moissanite.cn/app/mobile/statics/images/index/icon_xianhuo.jpg" app="mobile" /></div>
+        <div class="mo-view-xianhuo-list">
+            <ul>
+                
+                
+			{foreach:items=Api::run('getCommendHot',6)}
+                        <li class="first-child1">
+                            <div class="goods">
+				<a class="home_pul_box_shadow" href="{url:/site/products/id/$item['id']}">
+					<img src="{url:/pic/thumb/img/$item[img]/w/134/h/134}" alt="{$item['name']}" />
+					
+					<!--<del>￥{$item['market_price']}</del>-->
+					<!--<p class="pro_price">￥{$item['sell_price']}</p>-->
+				</a>
+                                <p class="name">{$item['name']}</p>
+                                <p class="price">￥{$item['sell_price']}</p>
+                            </div>
+                        </li>
+			{/foreach}                            
+                
+            </ul>
+
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--现货推荐END-->
+    
+    
+    <!--分类-->
+    <div class="mo-view-fenlei image-block">
+        <div><img src="http://www.moissanite.cn/app/mobile/statics/images/index/icon_fenlei.jpg" app="mobile" /></div>
+        <div class="mo-view-fenlei-list">
+            <div><a href="{url:/site/pro_list/cat/1}">
+                    <img alt="唯钻会" src="http://img.moissanite.cn/public/images/84/6c/94/ab4909c1f3bb4b410de16368b06a2441.png?1477464712#w" /></a></div>
+            <div class="mo-view-fenlei-list-sec-floor">
+                <ul>
+                    <li class="p_right"><a href="{url:/site/pro_list/cat/2}"><img alt="唯钻会" src="http://img.moissanite.cn/public/images/e0/e0/a7/0469a4176d3f15699fbf490ad8520cdb.png?1514250413#w" /></a></li>
+                    <li><a href="{url:/site/pro_list/cat/2}"><img alt="唯钻会" src="http://img.moissanite.cn/public/images/90/42/1a/a61379c1d524b88698dee26ef2438722.png?1514250417#w" /></a></li>
+                    <li class="p_right"><a href="{url:/site/pro_list/cat/2}"><img alt="唯钻会" src="http://img.moissanite.cn/public/images/34/02/6f/4b1ae55b568e52e4154e09bb5a4b2dd7.png?1514250422#w" /></a></li>
+                    <li><a href="{url:/site/pro_list/cat/2}"><img alt="唯钻会" src="http://img.moissanite.cn/public/images/7f/9b/e0/19022c4f2c589f235d42cc42a3a2c578.png?1514250426#w" /></a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--分类END-->
+    
+    <!--人气推荐-->
+    <div class="mo-view-renqi image-block">
+        
+        <div><img src="http://www.moissanite.cn/app/mobile/statics/images/index/index_icon_renqi.jpg" app="mobile" /></div>
+
+        
+        <div class="mo-view-renqi-list">
+            
+            <ul >
+			{foreach:items = Api::run('getCommendRecom',6)}
+                        
+			<li style="width:50%;height:50%">
+				<a class="home_pul_box_shadow" href="{url:/site/products/id/$item['id']}">
+					<img src="{url:/pic/thumb/img/$item['img']/w/430/h/430}">
+					<!--<h3 class="pro_title">{$item['name']}</h3>-->
+					<!--<del>￥{$item['market_price']}</del>-->
+					<!--<p class="pro_price">￥{$item['sell_price']}</p>-->
+				</a>
+			</li>
+			{/foreach}
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--人气推荐END-->
+    
+    
+{foreach:items=Api::run('getCategoryListTop') item=$first }
+            <div class="clear"></div>
+<section class="home_floor">
+	<header class="home_layer_title">
+		
+            <div  class='mo-view-content-link'>
+			<ul class="mo-view-content-link-jiezhi">
+				{foreach:items=Api::run('getCategoryByParentid',array('#parent_id#',$first['id'])) item=$second}
+				<li><a href="{url:/site/pro_list/cat/$second[id]}">{$second['name']}</a></li>
+				{/foreach}
+			</ul>
+            </div>
+		
+	</header>
+	<div class="mo-view-content-list">
+		<div>
+			<ul>
+				{foreach:items=Api::run('getCategoryExtendList',array('#categroy_id#',$first['id']), 6)}
+				<li>
+                                    <div class="goods">
+					<a class="home_pul_box_shadow" href="{url:/site/products/id/$item['id']}">
+						<img class="floor_goods_img" src="{url:/pic/thumb/img/$item['img']/w/170/h/170}">
+
+					</a>
+                                    </div>
+				</li>
+				{/foreach}
+			</ul>
+		</div>
+	</div>
+</section>
+{/foreach}
+    
+
+    <!--FOOTER-->
+    <div class="mo-footer image-block">
+        <a href="https://mall.jd.com/index-620256.html" class="f_left" style="width:50%" target="_blank">
+        <img src="http://www.moissanite.cn/app/mobile/statics/images/index/sc_01.jpg?1" app="mobile" /></a>
+        <a href="https://weizuanhui.tmall.com/shop/view_shop.htm?spm=687.8433302.sidebar.21.0EjyGm&mytmenu=mdianpu&utkn=g%2Cz2unp2v34hdozpncwxva1507797413770&user_number_id=3447316395&scm=1028.1.1.20001" class="f_left" style="width:50%" target="_blank">
+        <img src="http://www.moissanite.cn/app/mobile/statics/images/index/sc_02.jpg?1" app="mobile" /></a>
+        <div class="clear"></div>
+        <div class="mo-footer-link">
+            <ul>
+                <li><a href="http://www.moissanite.cn/m/act/act/mosangshi.html">莫桑石简介</a></li>
+                <li><a href="http://www.moissanite.cn/mobile/article-article-aboutus.html">泰瑞城简介</a></li>
+                <li><a href="http://www.moissanite.cn/mobile/article-article-contactus.html">联系我们</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="mo-footer-link">
+            <ul>
+                <li><a href="http://www.moissanite.cn/mobile/article-article-recycling.html">终身保养</a></li>
+                <li><a href="http://www.moissanite.cn/mobile/article-article-15daystryforfree.html">7天免费退换</a></li>
+                <li><a href="http://www.moissanite.cn/mobile/article-article-recycling43.html">换款规则</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="mo-footer-phone">
+            <a href="tel:4006777520">
+                <img src="{webroot:public/img/footer.jpg}"/></a>
+            
+            <div class="copyright">
+                <div>
+                    <p>copyright © 2016-2018 泰瑞城 版权所有 并保留所有权利</p>
+                    <p>北京浩轩锦程商贸有限公司</p>
+                    <p>备案号：**********</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FOOTER END-->
+    <div class="mo-search-win">
+        <div class="mo-search-win-box">
+            <!--分类头部-->
+            <header>
+                <div class="mo-header-category-box">
+                    <div class="mo-header-box-left-close">
+                        <a href="javascript:;"><i class="mo-sprite-icon"></i></a>
+                    </div>
+                    <div class="mo-header-box-right-search">
+                        <a href="javascript:;"><i class="mo-sprite-icon"></i></a>
+                    </div>
+                    <div class="mo-header-category-center">
+                        <div class="mo-search-form-input">
+                            <form action="http://www.moissanite.cn/mobile/gallery-search.html">
+                                <input name="name" class="rsearch" type="text" value="" placeholder="单钻款戒指" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </header>
+            <!--分类头部END-->
+            <!--搜索关键词-->
+            <div class="mo-search-keyword">
+                <div class="mo-search-keyword-box">
+                    <ul>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-28.html">女戒</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-29.html">男戒</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-30.html">对戒</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-8,225-0-0-1--index.html">单钻款</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-8,226-0-0-1--index.html">多钻款</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-7,223-0-0-1--index.html">直臂</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-7,224-0-0-1--index.html">扭臂</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-6,227-0-0-1--index.html">3爪款</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-6,219-0-0-1--index.html">4爪款</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-6,220-0-0-1--index.html">6爪款</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-6,222-0-0-1--index.html">包镶款</a></li>
+                        <li><a href="http://www.moissanite.cn/mobile/gallery-23-6,221-0-0-1--index.html">迫镶款</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!--搜索关键词-->
+        </div>
+    </div>
+    <script type="text/jscript">
+        $('.openSearchBlock').click(function () {
+            $('.mo-search-win').show();
+            $('.rsearch').focus();
+        });
+        $('.mo-header-box-left-close a').click(function () {
+            $('.mo-search-win').hide();
+        });
+        $('.mo-search-form-input form').submit(function () {
+            if ($('.rsearch').val() == '') {
+                headerUrl('/mobile/gallery-23-8,225-0-0-1--index.html');
+                return false;
+            }
+        });
+        $(function () {
+            $('.mo-header-box-right-search a').click(function () {
+                $('.mo-search-form-input form').submit();
+            });
+        });
+    </script><!--导航菜单-->
+    <div class="mo-nav-menu">
+        <!--	<div class="mo-nav-menu-box">
+                <ul>
+                    <li class="category"><a href="/mobile/category.html"><i class="mo-sprite-icon"></i></a></li>
+                    <li class="online"><a href="javascript:;" onclick="openTheChat()"><i class="mo-sprite-icon"></i></a></li>
+                    <li class="weixin"><a href="/mobile/act/act/wxkefu.html"><i class="mo-sprite-icon"></i></a></li>
+                    <li class="more">
+                        <a href="javascript:;"><i class="mo-sprite-icon"></i></a>
+                        <div class="more-box">
+                            <p class="index"><a href="/m/"><i class="mo-sprite-icon"></i></a></p>
+                            <p class="buy"><a href="/mobile/cart.html"><i class="mo-sprite-icon"></i></a></p>
+                            <p class="acccount"><a href="/mobile/member.html"><i class="mo-sprite-icon"></i></a></p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>-->
+        <div class="mo-nav-menu-box-2-0">
+            <div class="left">
+                <div class="tel f_left"><a href="{webroot:}"><i class="mo-sprite-big-icon"></i></a></div>
+                <!--<div class="cate f_left"><a href="http://192.168.1.7/index.php?controller=site&action=pro_list&cat=1"><i class="mo-sprite-big-icon"></i></a></div>-->
+                <div class="cate f_left"><a href="{url:/site/category}"><i class="mo-sprite-big-icon"></i></a></div>
+                <div class="cate f_left"><a href="{url:/site/pro_list/cat/1}"><i class="mo-sprite-big-icon"></i></a></div>
+                
+                <div class="clear"></div>
+            </div>
+            <!--<div class="right">
+                <div class="item1">当前咨询人数<span>5</span>位</div>
+                <div onclick="openTheChat()"><img src="http://www.moissanite.cn/app/mobile/statics/images/kefu.gif" app="mobile" /></div>
+            </div>-->
+        </div>
+    </div>
+    <!--导航菜单--><!--快捷登陆-->
+    <div class="mo-mini-login-box">
+        <div class="bg"></div>
+        <div class="content">
+            <div class="block">
+                <div class="closeDiv"></div>
+                <div class="input">
+                    <div class="closeBtn">X</div>
+                    <a href="javascript:;" class="tab f_left reg"><span>注册</span></a>
+                    <a href="javascript:;" class="tab f_left login selected"><span>登陆</span></a>
+                    <div class="clear"></div>
+                    <!--登陆-->
+                    <div class="login-content">
+                        <form action="http://www.moissanite.cn/openapi/pam_callback/login/module/pam_passport_basic/type/member/appid/mobile/redirect/L21vYmlsZS9wYXNzcG9ydC1wb3N0X2xvZ2luLmh0bWw%3D" method="post" id="loginBar">
+                            <div class="login-name box-border">
+                                <div class="box-input"><input placeholder="请输入手机号码或用户名" name="uname" class="uname text info" type="text" /></div>
+                                <div class="icon_account"><i class="mo-sprite-icon"></i></div>
+                            </div>
+                            <div class="login-pwd box-border">
+                                <div class="box-input">
+                                    <input placeholder="请输入密码" class="passwordHide text info" type="password" />
+                                    <input placeholder="请输入密码" class="passwordShow text info" type="text" style="display:none;" />
+                                    <input name="password" class="password" type="hidden" value="" />
+                                </div>
+                                <div class="icon_pwd"><i class="mo-sprite-icon"></i></div>
+                                <div class="icon_eye"><i class="mo-sprite-icon"></i></div>
+                                <div class="icon_forgetpwd"><a href="/mobile/passport-r_password.html">忘记密码</a></div>
+                            </div>
+                            <a href="javascript:;" class="submitbutton loginSubmit"><span>完成登录</span></a>
+                        </form>
+                    </div>
+                    <!--注册-->
+                    <div class="reg-content" style="display:none;">
+                        <form action="http://www.moissanite.cn/mobile/passport-create.html" method="post" id="regBar">
+                            <div class="reg-phone box-border">
+                                <div class="box-input"><input placeholder="请输入手机号码" name="pam_account[login_name]" class="uname phone text info" type="text"></div>
+                                <div class="icon_account"><i class="mo-sprite-icon"></i></div>
+                                <div class="icon_getcode"><a href="javascript:;" class="getCode">获取验证码</a></div>
+                            </div>
+                            <div class="reg-pwd box-border">
+                                <div class="box-input">
+                                    <input placeholder="请输入验证码" name="sms_code" class="sms_code text info" type="text">
+                                    <input placeholder="请输入密码" class="passwordHide text info" type="password" style="width:29%;">
+                                    <input placeholder="请输入密码" class="passwordShow text info" type="text" style="display:none;width:29%;">
+                                    <input name="pam_account[login_password]" class="password" type="hidden" value="" />
+                                    <input name="pam_account[psw_confirm]" class="password" type="hidden" value="" />
+                                    <input type="hidden" value="agree" name="license" />
+                                    <div class="icon_code"><i class="mo-sprite-icon"></i></div>
+                                    <div class="icon_eye open"><i class="mo-sprite-icon"></i></div>
+                                </div>
+                            </div>
+                            <a href="javascript:;" class="submitbutton regSubmit"><span>完成注册</span></a>
+                        </form>
+                    </div>
+                    <div class="fastlogin-content">
+                        <!--<a href="" class="f_left wechat"><i class="mo-sprite-big-icon"></i><span>微信登录</span></a>
+                        <a href="" class="f_left qq"><i class="mo-sprite-big-icon"></i><span>QQ登录</span></a>-->
+                        <!-- 信任登录 -->
+                        <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101402225&redirect_uri=https%3A%2F%2Fwww.moissanite.cn%2Fwxtrust-callback-weixin_passport_QQ_site_trust.html&state=70c4102e7538bc4c179da327fb429886&scope=get_user_info" style="margin-left:10px;">
+                            <img src="http://www.moissanite.cn/app/weixin/statics/images/Member-Icon-Cell-QQ@2x.png" style="width:40px;height:40px;">
+                        </a>                    <!-- 信任登录end -->
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            miniLogin.init();
+        });
+        var miniLogin = {
+            box: $('.mo-mini-login-box'),
+            closeDiv: $('.closeDiv'),
+            closeBtn: $('.closeBtn'),
+            t: $('.tab'),
+            login: $('.login-content'),
+            reg: $('.reg-content'),
+            loginSubmit: $('.loginSubmit'),
+            regSubmit: $('.regSubmit'),
+            loginBar: $('#loginBar'),
+            regBar: $('#regBar'),
+            input: $('.mo-mini-login-box .input'),
+            icon_eye: $('.icon_eye'),
+            icon_eye_state: false,
+            passwordHide: $('.passwordHide'),
+            passwordShow: $('.passwordShow'),
+            password: $('.password'),
+            getCode: $('.getCode'),
+            phone: $('.phone'),
+            sms_code: $('.sms_code'),
+            fastloginContent: $('.fastlogin-content'),
+            wait: 60,
+            wait_second: 60,
+            init: function () {
+                $('.passwordHide,.passwordShow').keyup(function () {
+                    miniLogin.password.val($(this).val());
+                });
+                /*miniLogin.closeDiv.click(function (){
+                    miniLogin.closeLogin();
+                });*/
+                miniLogin.closeBtn.click(function () {
+                    miniLogin.closeLogin();
+                });
+                miniLogin.t.click(function () {
+                    miniLogin.t.removeClass('selected');
+                    $(this).addClass('selected');
+                    var index = $(this).index();
+                    if (index == 0) {
+                        miniLogin.reg.show();
+                        miniLogin.login.hide();
+                    } else {
+                        miniLogin.login.show();
+                        miniLogin.reg.hide();
+                    }
+                });
+
+                // 登陆
+                miniLogin.loginSubmit.click(function () {
+                    var uname = $('#loginBar .uname').val();
+                    var password = $('#loginBar .password').val();
+                    if (uname == "" || password == "") {
+                        _alert(false, "用户名或密码不能为空");
+                    } else {
+                        miniLogin.loginBar.submit();
+                    }
+                });
+
+                miniLogin.loginBar.submit(function (e) {
+                    $(this).ajaxSubmit({
+                        dataType: 'json',
+                        success: function (e) {
+                            if (e.error) {
+                                alert(e.data);
+                            } else {
+                                miniLogin.closeLogin();
+                            }
+                        }
+                    });
+                    return false;
+                });
+                // 注册
+                miniLogin.regSubmit.click(function () {
+                    var phone = miniLogin.phone.val();
+                    var password = miniLogin.password.val();
+                    var sms_code = miniLogin.sms_code.val();
+                    if (phone == "") {
+                        _alert(false, "手机不能为空");
+                    } else if (password == "") {
+                        _alert(false, "密码不能为空");
+                    } else if (sms_code == "") {
+                        _alert(false, "验证码不能为空");
+                    } else {
+                        miniLogin.regBar.submit();
+                    }
+                });
+
+                miniLogin.regBar.submit(function (e) {
+                    $(this).ajaxSubmit({
+                        dataType: 'json',
+                        success: function (e) {
+                            if (e.error) {
+                                alert(e.error);
+                            } else {
+                                miniLogin.closeLogin();
+                            }
+                        }
+                    });
+                    return false;
+                });
+
+                miniLogin.icon_eye.click(function () {
+                    if (miniLogin.icon_eye_state) {
+                        miniLogin.icon_eye_state = false;
+                        miniLogin.icon_eye.removeClass('open');
+                        miniLogin.passwordHide.show();
+                        miniLogin.passwordShow.hide();
+                        miniLogin.passwordHide.val(miniLogin.passwordShow.val());
+                    } else {
+                        miniLogin.icon_eye_state = true;
+                        miniLogin.icon_eye.addClass('open');
+                        miniLogin.passwordHide.hide();
+                        miniLogin.passwordShow.show();
+                        miniLogin.passwordShow.val(miniLogin.passwordHide.val());
+                    }
+                });
+
+                miniLogin.getCode.click(function () {
+                    if (miniLogin.wait == miniLogin.wait_second) {
+                        miniLogin.getSmsCode();
+                        miniLogin.time();
+                    }
+                });
+
+                var fastloginContentWidth = 0;
+                miniLogin.fastloginContent.find('a').each(function () {
+                    fastloginContentWidth += 50;
+                    miniLogin.fastloginContent.css({ "width": fastloginContentWidth + "px" });
+                });
+            },
+            openLogin: function () {
+                miniLogin.box.show();
+                miniLogin.input.animate({ "bottom": 0 });
+            },
+            closeLogin: function () {
+                miniLogin.input.animate({ "bottom": '-330px' }, function () {
+                    miniLogin.box.hide();
+                });
+            },
+            time: function () {
+                if (miniLogin.wait == 0) {
+                    miniLogin.wait = miniLogin.wait_second;
+                    miniLogin.getCode.text("获取验证码");
+                } else {
+                    miniLogin.getCode.text("重新发送(" + miniLogin.wait + ")");
+                    miniLogin.wait--;
+                    setTimeout(function () {
+                        miniLogin.time();
+                    }, 1000);
+                }
+            },
+            getSmsCode: function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '/mobile/passport-smsSecurityCode.html',
+                    dataType: 'json',
+                    data: "phone=" + miniLogin.phone.val(),
+                    success: function (e) {
+                        if (e.error) {
+                            _alert(false, e.error);
+                            miniLogin.wait = 0;
+                        }
+                        else
+                            _alert(true, e.success);
+                    },
+                    error: function (xhr, type) {
+                        _alert(false, '数据错误，请检查网络或者联系客服，错误代码：006');
+                    }
+                });
+            },
+        }
+    </script>
+    <!--快捷登陆-->
+    <div style="display:none">
+        <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1000137849'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000137849' type='text/javascript'%3E%3C/script%3E"));
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " https://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff19acb9a0a41d2666a573d0604d95d56' type='text/javascript'%3E%3C/script%3E"));
+
+//检测是否iPhone|iPod|iPad，然后提示跳转到app,仅限网页会话期间提示一次。
+/*var ua = navigator.userAgent;
+var isOpenApp = $.cookie('ISOPENAPP');
+if(ua.match(/iPhone|iPod|iPad/i) != null && isOpenApp != 1){
+	document.location = 'moissanite://' + document.location.pathname;
+	$.cookie('ISOPENAPP', 1);
+}*/
+        </script>
+
+
+        <!--小能客服-->
+        <script type="text/javascript"> var NTKF_PARAM = { "siteid": "kf_9273" /*网站siteid*/, "settingid": "kf_9273_1468978607339" /*代码ID*/, "uid": "" /*会员ID*/, "uname": ""/*会员名*/, "userlevel": "0"/*会员等级*/ }</script>
+        <script type="text/javascript" src="https://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9273" charset="utf-8"></script>
+        <script type="text/javascript">
+            $('#BizQQWPA,#BizQQWPAact1,#BizQQWPAchat,#zxylQQ').click(function () {
+                NTKF.im_openInPageChat('kf_9273_1468978607339');
+            });
+            var openTheChat = function () {
+                NTKF.im_openInPageChat('kf_9273_1468978607339');
+            }
+        </script>
+    </div>
+
+
+    <script type="text/javascript">
+            var img2 = new Image();
+            img2.src = "http://t.moissanite.cn/ip.php?ws=1";
+    </script>
+
+
+    <!--免费试戴弹窗-->
+    <div style="position:fixed;width:100%;height:100%;top:0;left:0; z-index:997; display:none;" class="shidaiWin">
+        <div style="background:#000;opacity:0.7;filter:Alpha(opacity=70);width:100%;height:100%;"></div>
+        <div class="shidaiWina" style="position:absolute;top:50%;left:50%;margin:-227px 0 0 -150px;cursor:pointer;">
+            <div onclick="openTheChat()"><img class="shidai-open" src="http://www.moissanite.cn/app/mobile/statics/images/mainfei_01.png" width="320" /></div>
+            <div style="width:35px; margin:0 auto;">
+                <img class="shidai-close" src="http://www.moissanite.cn/app/mobile/statics/images/mainfei_close.png" width="35" />
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            /*var shidaiState = $.cookie('MO_shidaiState');
+            if (!shidaiState) shidaiState = 0;
+            if (parseInt(shidaiState) < 2){
+                $('.shidaiWin').show();
+                shidaiState= parseInt(shidaiState) + 1;
+                $.cookie('MO_shidaiState', shidaiState, { expires: 365,path: '/' });
+            }
+            $('.shidai-close').click(function (){
+                $('.shidaiWin').hide();
+            });*/
+        });
+    </script>
+    <!--免费试戴弹窗 END-->
+
+    <script>
+//dom载入完毕执行
+$(function(){
+	// 调用焦点图
+	$("#home_fouse").FengFocus({trigger : "mouseover"});
+	$('#home_rec').kxbdSuperMarquee({
+		distance: 218,
+		time: 500,
+		btnGo: {left:'#home_rec_left',right:'#home_rec_right'},
+		direction: 'left'
+	});
+	// 调用焦点图
+	$('#home_panic').kxbdSuperMarquee({
+		distance: 1200,
+		time: 500,
+		btnGo: {left:'#home_panic_left',right:'#home_panic_right'},
+		direction: 'left'
+	});
+	//显示抢购倒计时
+	var cd_timer = new countdown();
+	{if:isset($countNumsItem) && $countNumsItem}
+	{foreach:items = $countNumsItem}
+		cd_timer.add({$item});
+	{/foreach}
+	{/if}
+});
+</script>
+    
+</body>
+</html>

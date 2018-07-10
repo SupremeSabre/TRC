@@ -1,0 +1,630 @@
+#suit-con .clb, #suit-con .stabcon {
+    clear: both
+}
+
+#suit-con .p-selected a, #suit-con .stab li {
+    white-space: nowrap
+}
+
+#shop-reco {
+    height: 210px;
+    overflow: hidden
+}
+
+#reco-more {
+    padding-right: 10px
+}
+
+    #reco-more.hover .head {
+        background-color: transparent
+    }
+
+.fittings .tab-main {
+    *z-index: 1
+}
+
+.fittings a.current {
+    color: #e4393c
+}
+
+.fittings .acc-buy-center {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px
+}
+
+.fittings .tab-con {
+    padding-top: 20px
+}
+
+.fittings .item {
+    display: inline-block;
+    display: block
+}
+
+    .fittings .item:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+
+* html .fittings .item {
+    height: 1%
+}
+
+* + html .fittings .item {
+    min-height: 1%
+}
+
+.fittings .p-list {
+    padding: 0 3px;
+    width: 134px;
+    height: 161px;
+    position: relative;
+    list-style: none
+}
+
+    .fittings .p-list .p-name {
+        margin-bottom: 0
+    }
+
+    .fittings .p-list .p-price strong {
+        font-size: 14px;
+        line-height: 14px
+    }
+
+    .fittings .p-list .plus {
+        width: 23px;
+        height: 23px;
+        overflow: hidden;
+        line-height: 1000px;
+        position: absolute;
+        right: 8px;
+        top: 38px;
+        background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/fittings/i/plus.png) no-repeat
+    }
+
+    .fittings .p-list input {
+        vertical-align: middle
+    }
+
+.fittings .master {
+    float: left;
+    *display: inline;
+    width: 144px
+}
+
+    .fittings .master .p-list {
+        float: right
+    }
+
+.fittings .suits {
+    float: left;
+    width: 640px;
+    height: 187px;
+    overflow: hidden;
+    position: relative
+}
+
+    .fittings .suits .switchable-wrap {
+        height: 161px;
+        position: relative
+    }
+
+        .fittings .suits .switchable-wrap .lh-wrap {
+            margin: 0 38px 0 36px
+        }
+
+        .fittings .suits .switchable-wrap .next-btn, .fittings .suits .switchable-wrap .prev-btn {
+            background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/fittings/i/page-btn.png) 0 -94px no-repeat;
+            width: 23px;
+            height: 73px;
+            display: block;
+            position: absolute;
+            z-index: 1;
+            left: 5px;
+            top: 15px
+        }
+
+        .fittings .suits .switchable-wrap .next-btn {
+            left: auto;
+            right: 15px;
+            background-position: 0 0
+        }
+
+        .fittings .suits .switchable-wrap .prev-btn.disabled {
+            background-position: -94px -94px !important;
+            cursor: default
+        }
+
+        .fittings .suits .switchable-wrap .next-btn.disabled {
+            background-position: -94px 0 !important;
+            cursor: default
+        }
+
+#suit-con .p-choose .hl_blue, #suit-con .suits ul li .p-choose .hl_blue {
+    cursor: pointer
+}
+
+.fittings .suits .switchable-wrap .prev-btn.hover, .fittings .suits .switchable-wrap .prev-btn:hover {
+    background-position: -46px -94px
+}
+
+.fittings .suits .switchable-wrap .next-btn.hover, .fittings .suits .switchable-wrap .next-btn:hover {
+    background-position: -46px 0
+}
+
+.fittings .infos {
+    position: relative;
+    float: left;
+    display: inline;
+    width: 150px;
+    padding-left: 50px;
+    padding-top: 15px
+}
+
+    .fittings .infos .more-link {
+        padding-bottom: 10px
+    }
+
+        .fittings .infos .more-link a {
+            color: #005aa0
+        }
+
+    .fittings .infos .p-price, .fittings .infos .selected {
+        margin-bottom: 10px
+    }
+
+        .fittings .infos .p-price strong, .fittings .infos .selected strong {
+            font-size: 18px
+        }
+
+    .fittings .infos .equal {
+        width: 23px;
+        height: 23px;
+        overflow: hidden;
+        line-height: 1000px;
+        position: absolute;
+        left: 0;
+        top: 30px;
+        background: url(//static.360buyimg.com/item/unite/1.0.49/components/default/fittings/i/equal.png) no-repeat
+    }
+
+    .fittings .infos .btn-primary {
+        padding: 0 22px
+    }
+
+    .fittings .infos .extra {
+        width: 90px;
+        border: 1px solid #e1e1e1;
+        text-align: center;
+        line-height: 26px;
+        margin-top: 8px
+    }
+
+.fittings .recommend-more .head {
+    height: auto;
+    line-height: 18px;
+    float: none;
+    padding: 0
+}
+
+.fittings .recommend-more .content {
+    position: absolute;
+    top: 30px;
+    z-index: 3;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    width: 80px
+}
+
+#suit-con #fitting-suit #stabcon_suits li, #suit-con #stabcon_suits, #suit-con .pop-wrap, #suit-con .suits ul li, #suit-con .suits ul li li {
+    position: relative
+}
+
+.fittings .recommend-more .content a {
+    display: block;
+    font-size: 12px;
+    padding: 6px 10px
+}
+
+.root61 .fittings .suits {
+    width: 840px
+}
+
+    .root61 .fittings .suits .switchable-wrap .prev-btn {
+        left: 22px
+    }
+
+    .root61 .fittings .suits .switchable-wrap .next-btn {
+        right: 15px
+    }
+
+    .root61 .fittings .suits .switchable-wrap .lh-wrap {
+        margin: 0 38px 0 68px
+    }
+
+#suit-con .master s, #suit-con .suits ul li s {
+    display: inline;
+    margin-right: 3px;
+    margin-top: 100px
+}
+
+.root61 .fittings .p-list {
+    padding: 0 5px
+}
+
+#suit-con .stab {
+    overflow: hidden;
+    padding-bottom: 15px
+}
+
+    #suit-con .stab li {
+        margin-left: -1px;
+        padding: 0 15px;
+        height: 16px;
+        cursor: pointer;
+        border-left: 1px solid #D4D1C8;
+        line-height: 16px;
+        text-align: center;
+        color: #e4393c;
+        margin-bottom: 10px
+    }
+
+#suit-con .infos .btns, #suit-con .infos .p-price, #suit-con .infos .p-saving {
+    margin-left: 35px
+}
+
+    #suit-con .infos .p-price strong, #suit-con .suits ul li li .p-price strong {
+        color: #E4393C
+    }
+
+#suit-con .master {
+    float: left;
+    padding: 0 0 0 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 164px
+}
+
+    #suit-con .master .p-name {
+        width: 140px;
+        height: 36px;
+        padding: 0 10px
+    }
+
+    #suit-con .master s {
+        float: right;
+        width: 24px;
+        height: 22px;
+        background: url(//static.360buyimg.com/item/main/1.0.14/css/i/newicon20140910.png) 0 -260px no-repeat
+    }
+
+#suit-con .pop-wrap {
+    float: left
+}
+
+#suit-con .suits {
+    float: left;
+    width: 788px
+}
+
+    #suit-con .suits ul {
+        float: left;
+        height: 100%;
+        overflow: hidden
+    }
+
+        #suit-con .suits ul li {
+            width: 197px;
+            padding-left: 0
+        }
+
+            #suit-con .suits ul li s {
+                float: right;
+                width: 24px;
+                height: 22px;
+                background: url(//static.360buyimg.com/item/main/1.0.13/css/i/newicon20140910.png) 0 -260px no-repeat
+            }
+
+            #suit-con .suits ul li .p-img {
+                position: relative;
+                padding: 5px 0
+            }
+
+            #suit-con .suits ul li .p-scroll {
+                width: 155px;
+                _width: 155px;
+                height: 29px;
+                background: #fff;
+                overflow: hidden;
+                padding: 5px 0;
+                border: 1px solid #fff;
+                border-bottom: 0
+            }
+
+                #suit-con .suits ul li .p-scroll .p-scroll-btn {
+                    background-image: url(//static.360buyimg.com/item/main/1.0.13/css/i/scroll-btns.png);
+                    background-repeat: no-repeat;
+                    float: left;
+                    width: 16px;
+                    height: 29px;
+                    text-indent: -9999px
+                }
+
+                #suit-con .suits ul li .p-scroll .p-scroll-prev {
+                    margin-right: 2px;
+                    background-position: 0 0
+                }
+
+                    #suit-con .suits ul li .p-scroll .p-scroll-prev.disabled {
+                        background-position: 0 -31px
+                    }
+
+                #suit-con .suits ul li .p-scroll .p-scroll-next {
+                    background-position: -18px 0
+                }
+
+                    #suit-con .suits ul li .p-scroll .p-scroll-next.disabled {
+                        background-position: -18px -31px
+                    }
+
+                #suit-con .suits ul li .p-scroll .p-scroll-wrap {
+                    float: left;
+                    width: 186px;
+                    height: 29px;
+                    overflow: hidden
+                }
+
+                #suit-con .suits ul li .p-scroll .suits ul {
+                    float: left;
+                    height: 100%;
+                    overflow: hidden
+                }
+
+            #suit-con .suits ul li li {
+                width: 30px;
+                height: 30px;
+                padding: 0
+            }
+
+                #suit-con .suits ul li li a {
+                    padding: 1px;
+                    border: 1px solid #ddd;
+                    float: left
+                }
+
+                    #suit-con .suits ul li li a img {
+                        width: 25px;
+                        height: 25px
+                    }
+
+                    #suit-con .suits ul li li a.curr {
+                        border: 1px solid #e4393c
+                    }
+
+                #suit-con .suits ul li li .p-name {
+                    width: 156px;
+                    height: 36px
+                }
+
+                #suit-con .suits ul li li .choose {
+                    width: 156px
+                }
+
+    #suit-con .suits .last-item s {
+        display: none
+    }
+
+#suit-con .infos {
+    margin-top: 50px;
+    float: right;
+    width: 190px;
+    line-height: 20px
+}
+
+    #suit-con .infos s {
+        float: left;
+        width: 24px;
+        height: 22px;
+        margin-top: 40px;
+        background: url(//static.360buyimg.com/item/main/1.0.14/css/i/newicon20140910.png) -30px -260px no-repeat
+    }
+
+    #suit-con .infos .p-name {
+        height: 36px;
+        overflow: hidden;
+        line-height: 13px;
+        margin-left: 35px;
+        margin-bottom: 0
+    }
+
+    #suit-con .infos .p-price .p-simsun {
+        font-family: simsun
+    }
+
+    #suit-con .infos .p-saving .hl_green {
+        color: #090
+    }
+
+    #suit-con .infos .btns {
+        color: #999
+    }
+
+    #suit-con .infos .btn-buy {
+        display: block;
+        width: 77px;
+        height: 25px;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 25px;
+        color: #fff;
+        font-weight: 700;
+        background: url(//static.360buyimg.com/item/main/1.0.14/css/i/newicon20140910.png) -166px -112px no-repeat
+    }
+
+#suit-con #pop-box, #suit-con #pop-box-suit {
+    visibility: hidden;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 169px;
+    width: 175px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #C4C4C4;
+    -moz-box-shadow: 0 0 5px #ddd;
+    -webkit-box-shadow: 0 0 5px #DDD;
+    box-shadow: 0 0 5px #DDD
+}
+
+#suit-con #p-scroll, #suit-con #p-scroll-suit {
+    padding: 10px 0 0 10px
+}
+
+#suit-con #tab-suits {
+    overflow: visible
+}
+
+#suit-con .stabcon_suits .choose {
+    height: 16px
+}
+
+#suit-con #stabcon_suits .p-scroll {
+    width: 155px;
+    _width: 155px;
+    height: 29px;
+    background: #fff;
+    overflow: hidden;
+    padding: 5px 0;
+    border: 1px solid #fff;
+    border-bottom: 0
+}
+
+#suit-con #stabcon_suits .p-scroll-prev {
+    margin-right: 2px;
+    background-position: 0 0
+}
+
+#suit-con #stabcon_suits .p-scroll-next {
+    background-position: -18px 0
+}
+
+#suit-con #stabcon_suits .p-scroll-btn {
+    float: left;
+    display: none;
+    width: 16px;
+    height: 29px;
+    text-indent: -9999px;
+    background-image: url(//static.360buyimg.com/item/main/1.0.14/css/i/scroll-btns.png);
+    background-repeat: no-repeat
+}
+
+#suit-con .disabled {
+    cursor: default
+}
+
+#suit-con #stabcon_suits .p-scroll-wrap {
+    float: left;
+    width: 186px;
+    height: 29px;
+    overflow: hidden
+}
+
+#suit-con #fitting-suit #stabcon_suits .p-scroll li {
+    width: 30px;
+    height: 30px;
+    padding: 0
+}
+
+#suit-con #stabcon_suits .p-scroll-wrap li, #suit-con .p-scroll-wrap li a {
+    float: left
+}
+
+    #suit-con #stabcon_suits .p-scroll-wrap li a {
+        padding: 1px;
+        border: 1px solid #ddd
+    }
+
+        #suit-con #stabcon_suits .p-scroll-wrap li a.curr {
+            border: 1px solid #e4393c
+        }
+
+#suit-con #stabcon_pop .p-scroll-wrap li, #suit-con .p-scroll-wrap li a {
+    float: left
+}
+
+#suit-con #stabcon_suits .p-scroll-wrap li a img {
+    width: 25px;
+    height: 25px
+}
+
+#suit-con #p-size, #suit-con #p-size-btn, #suit-con #p-size-btn-suit, #suit-con #p-size-suit, #suit-con #p-tips, #suit-con #p-tips-suit {
+    padding: 0 10px
+}
+
+    #suit-con #p-size-suit a {
+        display: inline-block;
+        padding: 2px 5px;
+        border: 1px solid #ccc;
+        margin: 0 5px 10px 0
+    }
+
+#suit-con #stabcon_suits .selected {
+    border-color: #e4393c
+}
+
+#suit-con #p-size-btn-suit {
+    padding-bottom: 10px
+}
+
+    #suit-con #p-size-btn a, #suit-con #p-size-btn-suit a {
+        display: inline-block;
+        width: 50px;
+        margin-right: 5px;
+        height: 21px;
+        line-height: 21px;
+        background: url(//static.360buyimg.com/item/main/1.0.14/css/i/scroll-btns.png) -36px 0 no-repeat;
+        text-align: center
+    }
+
+#suit-con .p-selected {
+    background: #fffdee;
+    width: 138px;
+    border: 1px solid #edd28b;
+    margin: 7px 0;
+    padding: 4px 10px
+}
+
+    #suit-con .p-selected a, #suit-con .p-selected a:hover, #suit-con .p-selected a:visited {
+        color: #005ea7
+    }
+
+#suit-con #fitting-suit #stabcon_suits li .choose, #suit-con #fitting-suit #stabcon_suits li .p-name {
+    width: 156px
+}
+
+.shopRec-content .plist li {
+    width: 160px;
+    margin: 10px 19px;
+    float: left;
+    _display: inline
+}
+
+    .shopRec-content .plist li .p-price {
+        text-align: center
+    }
+
+.root61 .shopRec-content .plist li {
+    margin: 10px 20px;
+    _display: inline
+}
+
+#shopRecSuit .tab-main .hide {
+    display: none
+}

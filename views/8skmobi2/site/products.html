@@ -1,0 +1,333 @@
+<script type="text/javascript" src="{theme:javascript/products.js}"></script>
+<script type='text/javascript' src='{theme:javascript/jquery.flexslider-min.js}'></script>
+<style type="text/css">
+.page-index { padding-top:0px; }
+</style>
+{set:$breadGuide = goods_class::catRecursion($category);}
+{set:$user_id = $this->user['user_id']}
+<div class="block_home_slider">
+    <div id="home_slider" class="flexslider">
+        <ul class="slides">
+        {foreach:items=$photo}
+        <li><div class="slide"><img src='{webroot:}{echo:$item['img']}'/></div></li>
+        {/foreach}
+        </ul>
+    </div>        
+    <script type="text/javascript">
+        $(function () {
+            $('#home_slider').flexslider({
+                animation : 'slide',
+                controlNav : true,
+                directionNav : true,
+                animationLoop : true,
+                slideshow : false,
+                useCSS : false
+            });
+        });
+    </script>
+</div>
+
+<div class="pd_box">
+    <div class="pd_product_wrap">
+        <div class="product-title">
+            <h2>{$name}</h2>
+			<!--普通商品购买-->
+			{if:$promo == ''}
+				{if:$group_price}
+				<!--当前用户有会员价-->
+				<div class="pd_price">
+                    <em>会员价</em><span class="sell">￥<b id="data_groupPrice">{$group_price}</b></span>
+				</div>
+                <div class="market">原售价：￥<s id="data_sellPrice">{$sell_price}</s></div>
+				{else:}
+				<!--当前用户普通价格-->
+				<div class="pd_price">
+                    <em>销售价</em><span class="sell">￥<b id="data_sellPrice">{$sell_price}</b></span>
+				</div>
+                <div class="market">市场价：￥<s id="data_marketPrice">{$market_price}</s></div>
+				{/if}
+			{/if}
+            
+			<!--抢购活动,引入 "_products_time"模板-->
+			{if:$promo == 'time' && isset($time)}
+			{include:_products_time}
+			{/if}
+
+			<!--团购活动,引入 "_products_groupon"模板-->
+			{if:$promo == 'groupon' && isset($groupon)}
+			{include:_products_groupon}
+			{/if}
+        </div>
+    </div>
+</div>
+
+<!--商家信息 开始-->
+{if:isset($seller)}
+<div class="seller_info">
+    <div class="xc iconfont">&#xe937;</div>
+    <ul class="cxv">
+    <li class="title"><a href="{url:/site/home/id/$seller_id}">{$seller['true_name']}</a></li>
+    <li><a class="tel" href="tel:{$seller['phone']}">{$seller['phone']}</a><i class="iconfont">&#xe630;</i></li>
+    <li>地址：{echo:join(' ',area::name($seller['province'],$seller['city'],$seller['area']))}</li>
+    <li>{set:plugin::trigger("onServiceButton",$seller['id'])}</li>
+    </ul>
+</div>
+{/if}
+<!--商家信息 结束-->
+            
+<!-- 产品详情 -->
+<div class="flor_body2" >
+    <div class="btn-group btn-group-justified" name="showButton" style="margin:12px 0;">
+        <div class="btn btn-warning" id="btn"><a href="javascript:void(0)">商品详情</a></div>
+        <div class="btn btn-default" id="btn"><a href="javascript:void(0)">商品评价({$comments})</a></div>
+    </div>
+    <div name="showBox">
+        <div style="display:block;">
+            <p class="busbox"></p>
+            <a href="javascript:void(0)" onClick="toindex();" class="more_info">点击加载产品详情</a>
+        </div>
+        
+		<!-- 顾客评论 start -->
+        <div style="display:none;">
+            <div class="list-group" id='commentBox'></div>
+    
+            <!--评论JS模板-->
+            <script type='text/html' id='commentRowTemplate'>
+            <div class="list-group-item">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <img src="{webroot:<%=head_ico%>}" width="70px" height="70px"/>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><strong><%=username%></strong><span style="color:#999; padding-left:4px;"><%=comment_time%></span></h4>
+                        <div class="ly_store" style="padding-left:0px;"><p>评分：<%=point%></p></div>
+                        <p style="padding-left:0px;"><b>评价：</b><span class="gray"><%=contents%></span></p>
+                        <%if(recontents){%>
+                        <p class="prompt" style="margin-top:5px;"><b>回复：</b><span class="gray"><%=recontents%></span></p>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+            </script>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+function toindex(id){
+	$.get("{url:/bsk/goods_info}",{'id':{$id}},function(data){
+	    $(".more_info").hide();
+        $(".busbox").html(data);
+	});
+}
+
+//DOM加载结束后
+$(function(){
+	//初始化商品详情对象
+	var productInstance = new productClass("{$id}","{$this->user['user_id']}","{$promo}","{$active_id}");
+	
+	//详情滑动门按钮绑定
+	$('[name="showButton"]>.btn').click(function(){
+		//滑动按钮高亮
+		$(this).siblings().removeClass('btn-warning');
+		$(this).siblings().removeClass('btn-default');
+		$(this).siblings().addClass('btn-default');
+		$(this).removeClass('btn-default');
+		$(this).addClass('btn-warning');
+
+		//滑动DIV显示
+		$('[name="showBox"]>div').hide();
+		$('[name="showBox"]>div:eq('+$(this).index()+')').show();
+
+		//滑动按钮绑定事件
+		switch($(this).index())
+		{
+			case 1:
+			{
+				productInstance.comment_ajax();
+			}
+			break;
+		}
+	});
+});
+</script>
+
+<!-- 底部新样式 -->
+<div class="products_nav">
+    <ul>
+    <li id="nav1"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=12395923&amp;site=qq&amp;menu=yes"><i class="iconfont">&#xe973;</i><strong>客服</strong></a></li>
+    {set:$brandRow=Api::run('getBrandInfo',$brand_id)}
+    <li id="nav1"><a href="{url:/site/brand_zone/id/$brand_id}" title="{$brandRow['name']}"><i class="iconfont">&#xe903;</i><strong>品牌</strong></a></li>
+    
+    {if:$user_id}
+    {query:name=favorite where=rid eq $id and user_id eq $user_id order=id desc limit=1}
+    {set:$rid = $item[rid]}
+    {/query}
+    {if:$rid == $id}
+    <li id="nav1_on"><a href="javascript:void(0);"><i class="iconfont">&#xe947;</i><strong>己收藏</strong></a></li>
+    {else:}
+    <li id="nav1"><a href="javascript:void(0);" onclick="favorite_add_ajax({$id},this);" id="addFavorite"><i class="iconfont">&#xe947;</i><strong>收藏</strong></a></li>
+    {/if}
+    {else:}
+    <li id="nav1"><a href="javascript:void(0);" onclick="favorite_add_ajax({$id},this);" id="addFavorite"><i class="iconfont">&#xe947;</i><strong>收藏</strong></a></li>
+    {/if}
+
+    {if:$store_nums <= 0}
+    <li id="nav4"><strong>缺货</strong></li>
+    {else:}
+    {if:$promo==''}
+    <li id="nav2"><a href="javascript:void(0);" onclick="Cart_num();"><strong>加入购物车</strong></a></li>
+    <li id="nav3"><a href="javascript:void(0);" onclick="Cart_num();"><strong>立即购买</strong></a></li>
+    {else:}
+    <li id="nav5"><a href="javascript:void(0);" onclick="Cart_num();"><strong>立即购买</strong></a></li>
+    {/if}
+    {/if}
+    </ul>
+</div>
+
+<!-- 购买及加入购物车数量选择 -->
+<div class="lwidget_mask">&nbsp;</div>
+<div class="new_pd_info">
+    <div class="pic_info_data">
+        <em><img src='{webroot:}{echo:Thumb::get($img,90,90)}'/></em>
+        <div class="info_data">
+            <p><strong>库存：</strong><label id="data_storeNums">{$store_nums}</label></p>
+            {if:$point > 0}
+            <p>单件送 {$point} 分</p>
+            {/if}
+            <p id="deliveInfo"></p>
+        </di>
+        <a href="javascript:void(0);" onclick="Cart_Close();"><i class="iconfont">&#xea09;</i></a>
+    </div>
+    
+    <div class="box_price">
+        {if:$promo == ''}
+            {if:$group_price}
+            <!--当前用户有会员价-->
+            <div class="pd_price">
+                <span class="sell">￥<b id="data_groupPrices">{$group_price}</b></span><em>会员价</em>
+            </div>
+            {else:}
+            <!--当前用户普通价格-->
+            <div class="pd_price">
+                <span class="sell">￥<b id="data_sellPrices">{$sell_price}</b></span><em>销售价</em>
+            </div>
+            {/if}
+        {/if}
+        {if:$promo == 'time' && isset($time)}
+        <div class="pd_price">
+            <span class="sell">￥<b id="data_groupPrice">{$time['award_value']}</b></span><em>抢购价</em>
+        </div>
+        {/if}
+        {if:$promo == 'groupon' && isset($groupon)}
+        <div class="pd_price">
+            <span class="sell">￥<b id="data_groupPrice">{$groupon['regiment_price']}</b></span><em>团购价</em>
+        </div>
+        {/if}
+    </div>
+    
+    <!--购买区域-->
+    <div class="mask_buy">
+    {if:$store_nums <= 0}
+        该商品已售完，不能购买，您可以看看其它商品！(<a href="{url:/simple/arrival/goods_id/$id}" class="orange">到货通知</a>)
+    {else:}
+        {if:$spec_array}
+        <!--商品规格选择 开始-->
+        {foreach:items=JSON::decode($spec_array)}
+        <dl class="mask_dl">
+            <dt>{$item['name']}：</dt>
+            <dd>
+			
+                {foreach:items=$item['value']  item=$spec_value key=$specValueKey}
+				{set:list($item['tip'],$item['value'])=each($spec_value);}
+                {if:$item['type'] == 1}
+    
+                <!--文字规格 开始-->
+                <div class="mask_text">
+                    <a href="javascript:void(0);" specId="{$item['id']}" id="{$item['id']}{$specValueKey}" title="{echo:htmlspecialchars($item['tip'])}">{$item['value']}<span></span></a>
+                </div>
+                <!--文字规格 结束-->
+    
+                {else:}
+    
+                <!--图片规格 开始-->
+                <div class="mask_pic">
+                    <a href="javascript:void(0);" specId="{$item['id']}" id="{$item['id']}{$specValueKey}" title="{echo:htmlspecialchars($item['tip'])}" style="background:url({webroot:$item['value']}) center no-repeat;background-size:contain;height:40px;display:inline-block;"><span></span></a>
+                </div>
+                <!--图片规格 结束-->
+    
+                {/if}
+				 <script>$('#{$item['id']}{$specValueKey}').data('specData',{echo:JSON::encode($item)});</script>
+                {/foreach}
+            </dd>
+        </dl>
+        {/foreach}
+        <!--商品规格选择 结束-->
+        {/if}
+    {/if}
+    </div>
+    
+    <div class="count_all">
+        <dl>
+        <dt>
+        <b>购买数量</b>
+        <p>
+        <a class="iconfont" href="javascript:void(0);" id="buyReduceButton">&#xe62e;</a>
+        <input type="text" id="buyNums" value="1" maxlength="5" class="buy_num" />
+        <a class="iconfont" href="javascript:void(0);" id="buyAddButton">&#xe62f;</a>
+        </p>
+        </dt>
+        </dl>
+    </div>
+    {if:$promo==''}
+    <div class="nav2">
+    <a href="javascript:void(0);" id="joinCarButton" onclick="joinCart();">加入购物车</a>
+    <a href="javascript:void(0);" id="buyNowButton" onclick="buy_now();">立即购买</a>
+    </div>
+    {else:}
+    <div class="nav5"><a href="javascript:void(0);" id="buyNowButton" onclick="buy_now();">立即购买</a></div>
+    {/if}
+</div>
+
+<div class="top_nav">
+    <ul>
+    <li class="yback"><a href="javascript:void(0)" onClick="window.history.back();" title="返回"><i class="iconfont">&#xe9d1;</i></a></li>
+    <li class="yhome"><a href="{$this->_siteConfig->url}"><i class="iconfont">&#xe801;</i></a></li>
+    <li class="ycart"><a href="{url:/simple/cart}"><i class="iconfont">&#xe629;</i><span name="mycart_count">{$myCartInfo['count']}</span></a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+ function Cart_num(){
+    $(".new_pd_info").css({'display':'block'});
+	$("body").css({'overflow':'hidden'});
+    $(".u-backtop").hide();
+    $(".lwidget_mask").show();
+}
+
+function Cart_Close(){
+    $(".new_pd_info").css({'display':'none'});
+	$("body").css({'overflow':'auto'});
+    $(".u-backtop").show();
+    $(".lwidget_mask").hide();
+}
+//购物车展示
+function creatUrl(url)
+{
+	return url;
+}
+//DOM加载结束后
+$(function(){
+	var elm = $(".top_nav");
+	var startPos = $(elm).offset().top;
+	$.event.add(window, "scroll", function() {
+		var p = $(window).scrollTop();
+		$(elm).css("background",((p) > startPos) ? "#fff" : "");
+		$(elm).css("height",((p) > startPos) ? "56px" : "46px");
+		$(elm).css("border-bottom",((p) > startPos) ? "1px solid #f1f1f1" : "");
+	});
+	
+	//清除底部通用导航
+	$(".top_search_box").remove();
+	$("#nav").remove();
+});
+</script>

@@ -1,0 +1,33 @@
+<ERROR_BLOCK>
+errorInfo: mkdir(): File exists
+errorFile: IWEB_PATH/lib/core/util/file_class.php
+errorLine: 127
+errorCode: 2
+errorTime: 2018-05-21 17:38:03
+#0 IWEB_PATH/lib/core/util/file_class.php(127): mkdir(IWEB_PATH/runtime/_thumb/upload/2016/01/22/,511)
+#1 IWEB_PATH/lib/core/util/image_class.php(36): IFile::mkdir(IWEB_PATH/runtime/_thumb/upload/2016/01/22/)
+#2 IWEB_PATH/classes/thumb.php(84): IImage::thumb(IWEB_PATH/upload/2016/01/22/rBEHaVBhYvsIAAAAAAE79Ehne_gAABgigKweaAAATwM774.jpg,118,118,118_118_,IWEB_PATH/runtime/_thumb/upload/2016/01/22/)
+#3 IWEB_PATH/controllers/pic.php(142): Thumb::get(upload/2016/01/22/rBEHaVBhYvsIAAAAAAE79Ehne_gAABgigKweaAAATwM774.jpg,118,118)
+#4 : Pic->thumb()
+#5 IWEB_PATH/lib/web/action/inline_action.php(24): call_user_func()
+#6 IWEB_PATH/lib/web/controller/controller_class.php(115): IInlineAction->run()
+#7 IWEB_PATH/lib/core/webapplication_class.php(75): IController->run(thumb)
+#8 IWEB_PATH/lib/core/application_class.php(94): IWebApplication->execRequest()
+#9 IWEB_PATH/index.php(5): IApplication->run()
+</ERROR_BLOCK>
+
+<ERROR_BLOCK>
+errorInfo: readfile(runtime/_thumb/upload/2016/01/22/118_118_rBEHaVBhYvsIAAAAAAE79Ehne_gAABgigKweaAAATwM774.jpg): failed to open stream: No such file or directory
+errorFile: IWEB_PATH/controllers/pic.php
+errorLine: 157
+errorCode: 2
+errorTime: 2018-05-21 17:38:03
+#0 IWEB_PATH/controllers/pic.php(157): readfile(runtime/_thumb/upload/2016/01/22/118_118_rBEHaVBhYvsIAAAAAAE79Ehne_gAABgigKweaAAATwM774.jpg)
+#1 : Pic->thumb()
+#2 IWEB_PATH/lib/web/action/inline_action.php(24): call_user_func()
+#3 IWEB_PATH/lib/web/controller/controller_class.php(115): IInlineAction->run()
+#4 IWEB_PATH/lib/core/webapplication_class.php(75): IController->run(thumb)
+#5 IWEB_PATH/lib/core/application_class.php(94): IWebApplication->execRequest()
+#6 IWEB_PATH/index.php(5): IApplication->run()
+</ERROR_BLOCK>
+

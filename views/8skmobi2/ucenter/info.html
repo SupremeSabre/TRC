@@ -1,0 +1,85 @@
+{js:artTemplate}
+{js:areaSelect}
+{js:my97date}
+{set:$top_name = "个人资料"}
+
+<div class="body_page_box">
+    <form action='{url:/ucenter/info_edit_act}' method='post' name='user_info'>
+    <div class="form-group has-feedback">
+        <label class="control-label">姓名</label>
+        <input type="text" class="form-control" name="true_name" pattern='required' alt='请填写真实姓名'/>
+    </div>
+    
+    <div class="checkbox">
+        <label><span><input type='radio' name='sex' value='1' /></span><strong>男</strong></label>
+        <label><span><input type='radio' name='sex' value='2' checked=checked /></span><strong>女</strong></label>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">出生日期</label>
+        <input type="text" class="form-control" name="birthday" pattern='date' empty onFocus="WdatePicker()"/>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">所在地区</label>
+        <div class="row">
+            <div class="col-xs-4">
+            <select class="form-control" name="province" child="city,area"></select>
+            </div>
+            <div class="col-xs-4">
+            <select class="form-control" name="city" child="area"></select>
+            </div>
+            <div class="col-xs-4">
+            <select class="form-control" name="area"></select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">联系地址</label>
+        <input type="text" class="form-control" name='contact_addr' alt='请填写联系地址'/>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">手机号码</label>
+        <input type="text" class="form-control" name='mobile' pattern='mobi' empty alt='请填写正确的手机号码'/>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">邮箱</label>
+        <input type="text" class="form-control" name='email' pattern='email' empty alt='请填写正确的邮箱地址'/>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">邮编</label>
+        <input type="text" class="form-control" name='zip' pattern='zip' empty alt='请填写正确的邮政编码'/>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">固定电话</label>
+        <input type="text" class="form-control" name='telephone' pattern='phone' empty alt='请填写正确的固定电话'/>
+    </div>
+    
+    <div class="form-group has-feedback">
+        <label class="control-label">QQ号码</label>
+        <input type="text" class="form-control" name='qq' pattern='qq' empty alt='请填写正确的QQ号'/>
+    </div>
+    <div class="form-group has-feedback">
+    <input class="btn btn-warning btn-lg btn-block" type="submit" value="保存基本信息" />
+    </div>
+    </form>
+</div>
+
+<script type='text/javascript'>
+//表单回填
+var areaInstance = new areaSelect('province');
+{if:$this->memberRow}
+{set:$area = explode(',',trim($this->memberRow['area'],','))}
+areaInstance.init({"province":"{$area[0]}","city":"{$area[1]}","area":"{$area[2]}"});
+{else:}
+areaInstance.init();
+{/if}
+
+var formObj = new Form('user_info');
+formObj.init({echo:JSON::encode($this->memberRow)});
+</script>

@@ -1,0 +1,51 @@
+{set:$top_name = "资讯详情"}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2 class="list-group-item-heading" style="font-size:18px;">{$this->articleRow['title']}</h2>
+        <p class="list-group-item-text" style="color:#ccc; height:26px;">发布日期：{$this->articleRow['create_time']}</p>
+        <p class="list-group-item-text" style="color:#666; line-height:20px;">{$this->articleRow['content']}</p>
+    </div>
+</div>
+
+<script type='text/javascript' src='{theme:javascript/TouchSlide.1.1.js}'></script>
+{if:!empty($this->relationList)}
+<div class="product_productx" style="border-bottom:1px;">
+    <div class="head"><span>相关商品</span></div>
+    <div class="scroll_hot" id="scroll_new">
+        <div class="bd">
+            <ul>
+            {set:$keyxx = 0}
+            {foreach:items = $this->relationList}
+            {set:$keyxx++}
+            {if:$keyxx = 4}
+            </ul><ul>
+            {/if}
+            <li>
+                <a href="{url:/site/products/id/$item['goods_id']}">
+                <div class="products_kuang">
+                    <img src="{url:/pic/thumb/img/$item[img]/w/160/h/160}">
+                </div>
+                <div class="goods_name">{$item['name']}</div>
+                <div class="price">
+                    <span class="price_pro">￥{$item['sell_price']}</span>
+                </div>
+                </a>
+            </li>
+            {/foreach}
+            </ul>
+        </div>
+        <div class="hd">
+            <ul></ul>
+        </div>
+        
+        <script type="text/javascript">
+        TouchSlide({ 
+            slideCell:"#scroll_new",
+            titCell:".hd ul",
+            effect:"leftLoop", 
+            autoPage:true,
+        });
+        </script>
+    </div>
+</div>
+{/if}
