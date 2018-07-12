@@ -22,4 +22,4 @@
 		,"url":"http:\/\/www.google.com\/product"
 		,"img":"http:\/\/www.google.com\/images\/defaultBanner\/b4.jpg"
 	}
-] dd
+]
